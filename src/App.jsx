@@ -12,6 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<pages.Landing />}></Route>
         <Route path="/dashboard" element={<pages.Dashboard />}></Route>
+        <Route path="/matcher-display" element={<pages.MatcherDisplay />}></Route>
       </Routes>
     </>
   )
