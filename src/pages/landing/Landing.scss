@@ -1,3 +1,25 @@
 .landing {
   background-color: pink;
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container-img1 {
+  width: 100%;
+  height: auto;
+}
+
+.container-img1 img {
+  width: 100%;
+}
+
+.container-img1 .text1{
+  position: absolute;
+  color: white;
+  right: 10px;
+  top: 10px;
+}
