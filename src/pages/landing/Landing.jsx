@@ -4,7 +4,8 @@ import { LoginButton } from "./components/login-button/LoginButton";
 import { LogoutButton } from "./components/logout-button/LogoutButton";
 
 export const Landing = () => {
-  const { user, isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+  const { user, isAuthenticated, isLoading, getAccessTokenSilently } =
+    useAuth0();
 
   const testBackendRoute = async () => {
     try {
@@ -45,25 +46,23 @@ export const Landing = () => {
   }
   return (
     <>
-      <p className="landing">Landing Page!</p>
-      <LoginButton />
-      <LogoutButton />
-      {isAuthenticated && (
-        <>
-          <div>
-          <img src={user.picture} alt={user.name} />
-          <h2>{user.name}</h2>
-          <h2>{user.email}</h2>
-          <button onClick={testBackendRoute}>Click me!</button>
+      <section className="landing-container">
+        <div className="header-container">
+          <div className="nav-container">
+            <img
+              className="logo"
+              src="src/pages/landing/stock video images/sean-stone-dkb3wApu5XQ-unsplash.jpeg"
+              alt="Controller"
+            />
+            <LoginButton />
+          </div>
+          <div className="title-container">
+            <h1>Title</h1>
+            <p>Description</p>
+          </div>
         </div>
-        <div className='container-img1'>
-          <img src="src/pages/landing/stock video images/sean-stone-dkb3wApu5XQ-unsplash.jpeg" alt="Controller"></img>
-          <div className="text1">Hello</div>
-        </div>
-        </>
-        
-      )}
-      
+        <div className="details-1"></div>
+      </section>
     </>
   );
 };
