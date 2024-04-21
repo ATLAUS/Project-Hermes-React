@@ -1,5 +1,5 @@
 import './Dashboard.scss'
-import { Messenger } from  './components/messanger/Messenger'
+import { Messenger } from  './components/messenger/Messenger'
 
 export const Dashboard = () => {
     return (
