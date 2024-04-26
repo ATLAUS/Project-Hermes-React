@@ -11,7 +11,7 @@ export const MatcherDisplay = () => {
                     <MatcherForm/>
                 </Grid>
             </Grid>
-            <Grid container xs={6} spacing={2} sx={{height:'50%', width:'100%', justifyContent: 'center'}}>
+            <Grid container xs={6} spacing={2} sx={{height:'60%', width:'100%', justifyContent: 'center'}}>
                 <Grid item xs={10}>
                     <MatcherInfo/>
                 </Grid>
