@@ -1,30 +1,31 @@
+@use '../../../../theme';
+
+$container-height: 100%;
+$container-width: 100%;
+$info-box-height: 31.75%;
+$info-box-margin: 5px;
+$inner-border-radius: 20px;
+$outer-border-radius: 25px;
+
 .matcher-info-container {
-    background-color: lightgrey;
-    height: 100%;
-    width: 100%;
-    border: 1px solid red;
-    border-radius: 5px;
+    background-color: theme.$primary-bg-color;
+    height: $container-height;
+    width: $container-width;
+    border: 5px solid theme.$secondary-bg-color;
+    border-radius: $outer-border-radius;
 }
 
-.matcher-game-container {
-    background-color: lightblue;
-    height: 25%;
-    width: 100%;
+.matcher-info-box {
+    height: $info-box-height;
+    border: 1px;
+    border-radius: $inner-border-radius;
+    background-color: theme.$secondary-bg-color;
+    margin: $info-box-margin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.matcher-platform-container {
-    background-color: lightgreen;
-    height: 25%;
-    width: 100%;
-}
-
-.matcher-objective-container {
-    height: 25%;
-    width: 100%;
-}
-
-.matcher-note-container {
-    background-color: lightcoral;
-    height: 25%;
-    width: 100%;
+.text-specifications {
+    color: gray;
 }
