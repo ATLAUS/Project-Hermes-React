@@ -2,47 +2,101 @@
   // we want the child to be 100% of the parent its filling up the size of the body
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  // overflow-y: scroll;
-
+  overflow-y: scroll;
 }
 
 .header-container {
   width: 100%;
   height: 75%;
-  border: 1px purple solid;
   display: flex;
   flex-direction: column;
 }
 
 .nav-container {
   width: 100%;
-  height: 30%;
-  border: 1px red solid;
+  height: 10%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
 .logo {
-  width: 100px;
+  width: 70px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 
 .title-container {
-  border: 1px blue solid;
-  height: 70%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('./images/luis-villasmil-ITFwHdPEED0-unsplash.jpeg');
+  background-image: url('https://images.unsplash.com/photo-1586182987320-4f376d39d787?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
   background-size: cover;
+  background-position: center;
 }
 
-.details-1 {
+.details {
   width: 100%;
   height: 75%;
-  border: 1px yellow solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1580327344181-c1163234e5a0?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+}
+
+.details-img{
+  width: 20%;
+  height: 30%;
+}
+
+
+.feature2-desc {
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  align-self: center;
+}
+
+.details3 {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url('https://images.unsplash.com/photo-1542549237432-a176cb9d5e5e?q=80&w=2014&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+}
+
+.details3-img{
+  width: 50%;
+  height: 50%;
+}
+
+.details3-button{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-container {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+
+
 }
