@@ -1,14 +1,48 @@
 import './App.scss'
-import { Route, Routes } from 'react-router-dom'
 import * as pages from './pages'
+import * as components from './components'
+import { useAuth0 } from '@auth0/auth0-react'
+import { Route, Routes } from 'react-router-dom'
 
 const App = () => {
+  const { isLoading } = useAuth0()
+
+  if (isLoading) {
+    // TODO replace with a loading component or something of the sort.
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    )
+  }
+
   return (
     <main>
       <Routes>
         <Route path="/" element={<pages.Landing />}></Route>
-        <Route path="/dashboard" element={<pages.Dashboard />}></Route>
-        <Route path="/matcher-display" element={<pages.MatcherDisplay />}></Route>
+        {/* TODO If login page is not completed replace with unauth page
+        OR condense the two. */}
+        <Route path="/login" element={<pages.LoginPage />}></Route>
+        <Route
+          path="/unauthorized"
+          element={<pages.UnauthorizedPage />}
+        ></Route>
+        <Route
+          path="/dashboard"
+          element={
+            <components.ProtectedRoute>
+              <pages.Dashboard />
+            </components.ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          path="/matcher-display"
+          element={
+            <components.ProtectedRoute>
+              <pages.MatcherDisplay />
+            </components.ProtectedRoute>
+          }
+        ></Route>
       </Routes>
     </main>
   )
