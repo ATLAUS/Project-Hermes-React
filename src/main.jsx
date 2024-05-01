@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     domain="dev-wfrnzblw5rylyqxk.us.auth0.com"
     clientId="HZ3nBT1D3gZsller6vHzO0k4K9NS73UX"
     authorizationParams={{
-      redirect_uri: window.location.origin,
+      redirect_uri: 'http://localhost:5173/dashboard',
       audience: 'http://localhost:3000/'
     }}
   >
