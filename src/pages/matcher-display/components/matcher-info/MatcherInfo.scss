@@ -2,7 +2,7 @@
 
 $container-height: 100%;
 $container-width: 100%;
-$info-box-height: 31.75%;
+$info-box-height: 32%;
 $info-box-margin: 5px;
 $inner-border-radius: 20px;
 $outer-border-radius: 25px;
@@ -13,6 +13,9 @@ $outer-border-radius: 25px;
     width: $container-width;
     border: 5px solid theme.$secondary-bg-color;
     border-radius: $outer-border-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .matcher-info-box {
