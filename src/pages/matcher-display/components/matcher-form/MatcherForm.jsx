@@ -1,6 +1,13 @@
 import { Box, Typography } from '@mui/material'
-import { Stack, TextField, Button } from '@mui/material'
+import { Stack, TextField, Button, MenuItem } from '@mui/material'
 import './MatcherForm.scss'
+
+const platforms = [
+    { value: "PS5", label: "PS5" },
+    { value: "Xbox Series X", label: "Xbox Series X" },
+    { value: "Nintendo Switch", label: "Nintendo Switch" },
+    { value: "PC", label: "PC" }
+];
 
 export const MatcherForm = () => {
     return(
@@ -11,8 +18,8 @@ export const MatcherForm = () => {
                 <TextField
                     type = "text"
                     variant = "outlined"
-                    color = "secondary"
                     label = "Game"
+                    InputProps={{style: {color: "white"}}}
                     fullWidth
                     required
                     focused
@@ -21,14 +28,23 @@ export const MatcherForm = () => {
                     type = "text"
                     variant = "outlined"
                     label = "Platform"
+                    InputProps={{style: {color: "white"}}}
+                    select
                     fullWidth
                     required
                     focused
-                />
+                >
+                    {platforms.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                            {option.label}
+                        </MenuItem>
+                    ))}
+                </TextField>
                 <TextField
                     type = "text"
                     variant = "outlined"
                     label = "Objective"
+                    InputProps={{style: {color: "white"}}}
                     fullWidth
                     focused
                 />
@@ -36,6 +52,8 @@ export const MatcherForm = () => {
                     type = "text"
                     variant = "outlined"
                     label = "Note"
+                    InputProps={{style: {color: "white"}}}
+                    multiline
                     fullWidth
                     focused
                 />
