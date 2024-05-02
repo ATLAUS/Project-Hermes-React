@@ -8,7 +8,7 @@ export const Dashboard = () => {
     return (
         <Grid container spacing={3} className='dashboard-container' sx={{height:'100%', justifyContent: 'center', alignItems: 'center'}}>
             <Grid item xs={3} sx={{height: '80%'}}>
-                <GameInfo/>
+                <GameInfo />
                 <PartyInfo />
             </Grid>
             <Grid item xs={6} sx={{height: '80%'}}>
