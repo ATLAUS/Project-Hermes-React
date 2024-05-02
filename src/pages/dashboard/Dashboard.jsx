@@ -3,7 +3,6 @@ import './Dashboard.scss'
 import { Messenger } from  './components/messenger/Messenger'
 import { GameInfo } from './components/game-info/GameInfo'
 import { MatchInfo } from './components/match-info/MatchInfo'
-import { VoiceChat } from './components/voice-chat/VoiceChat'
 
 export const Dashboard = () => {
     return (
