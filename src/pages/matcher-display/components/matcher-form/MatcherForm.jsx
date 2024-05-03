@@ -3,6 +3,7 @@ import { Stack, TextField, Button, MenuItem, FormControl } from '@mui/material'
 import { useState } from 'react'
 import './MatcherForm.scss'
 import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
 
 const platforms = [
     { value: "PS5", label: "PS5" },
@@ -12,12 +13,13 @@ const platforms = [
 ];
 
 export const MatcherForm = () => {
+    const navigate = useNavigate()
 
     const { user, getAccessTokenSilently } = useAuth0();
 
     
 
-    const [game, setGame] = useState("")
+    const [gameName, setGameName] = useState("")
     const [platform, setPlatform] = useState("")
     const [objective, setObjective] = useState("")
     const [note, setNote] = useState("")
@@ -25,10 +27,9 @@ export const MatcherForm = () => {
     async function submitHandler(e) {
 
         e.preventDefault();
-        console.log("clicked")
 
         const newMatcher = {
-            game,
+            gameName,
             platform,
             objective,
             note
@@ -55,17 +56,16 @@ export const MatcherForm = () => {
             const postMatcherForm = await fetch(`http://localhost:3000/api/matchers`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json", Authorization: `Bearer ${accessToken}`, ...customHeader},
-                body: JSON.stringify(newMatcher)
+                body: JSON.stringify({matcher: newMatcher})
             })
 
             const response = await postMatcherForm.json()
 
-            console.log(response)
         } catch(err) {
             console.log("error", err)
         }
 
-        alert("form submitted")
+        navigate("/dashboard")
     }
 
 
@@ -78,13 +78,13 @@ export const MatcherForm = () => {
                     <TextField
                         type = "text"
                         variant = "outlined"
-                        label = "Game"
+                        label = "Game Name"
                         InputProps={{style: {color: "white"}}}
                         fullWidth
                         required
                         focused
-                        value = {game}
-                        onChange={(e) => setGame(e.target.value)}
+                        value = {gameName}
+                        onChange={(e) => setGameName(e.target.value)}
                     />
                     <TextField
                         type = "text"
