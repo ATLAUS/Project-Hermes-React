@@ -3,6 +3,7 @@ import { Stack, TextField, Button, MenuItem, FormControl } from '@mui/material'
 import { useState } from 'react'
 import './MatcherForm.scss'
 import { useAuth0 } from '@auth0/auth0-react';
+import { useNavigate } from 'react-router-dom';
 
 const platforms = [
     { value: "PS5", label: "PS5" },
@@ -12,6 +13,7 @@ const platforms = [
 ];
 
 export const MatcherForm = () => {
+    const navigate = useNavigate()
 
     const { user, getAccessTokenSilently } = useAuth0();
 
@@ -25,7 +27,6 @@ export const MatcherForm = () => {
     async function submitHandler(e) {
 
         e.preventDefault();
-        console.log("clicked")
 
         const newMatcher = {
             gameName,
@@ -60,12 +61,11 @@ export const MatcherForm = () => {
 
             const response = await postMatcherForm.json()
 
-            console.log(response)
         } catch(err) {
             console.log("error", err)
         }
 
-        alert("form submitted")
+        navigate("/dashboard")
     }
 
 
