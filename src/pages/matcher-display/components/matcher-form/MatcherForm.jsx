@@ -17,7 +17,7 @@ export const MatcherForm = () => {
 
     
 
-    const [game, setGame] = useState("")
+    const [gameName, setGameName] = useState("")
     const [platform, setPlatform] = useState("")
     const [objective, setObjective] = useState("")
     const [note, setNote] = useState("")
@@ -28,7 +28,7 @@ export const MatcherForm = () => {
         console.log("clicked")
 
         const newMatcher = {
-            game,
+            gameName,
             platform,
             objective,
             note
@@ -55,7 +55,7 @@ export const MatcherForm = () => {
             const postMatcherForm = await fetch(`http://localhost:3000/api/matchers`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json", Authorization: `Bearer ${accessToken}`, ...customHeader},
-                body: JSON.stringify(newMatcher)
+                body: JSON.stringify({matcher: newMatcher})
             })
 
             const response = await postMatcherForm.json()
@@ -78,13 +78,13 @@ export const MatcherForm = () => {
                     <TextField
                         type = "text"
                         variant = "outlined"
-                        label = "Game"
+                        label = "Game Name"
                         InputProps={{style: {color: "white"}}}
                         fullWidth
                         required
                         focused
-                        value = {game}
-                        onChange={(e) => setGame(e.target.value)}
+                        value = {gameName}
+                        onChange={(e) => setGameName(e.target.value)}
                     />
                     <TextField
                         type = "text"
