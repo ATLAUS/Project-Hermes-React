@@ -7,6 +7,6 @@ $outer-border-radius: 25px;
     height: 50%; 
     width: 100%; 
     border-radius: $outer-border-radius;
-    background-color: theme.$primary-bg-color;
-    margin-bottom: 5%;
+    background-color: rgba(18, 18, 18, 0.6);
+    backdrop-filter: blur(xpx);
 }
