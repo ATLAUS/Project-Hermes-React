@@ -4,11 +4,13 @@ import './Dashboard.scss'
 import { Messenger } from './components/messenger/Messenger'
 import { GameInfo } from './components/game-info/GameInfo'
 import { PartyInfo } from './components/match-info/PartyInfo'
-import { useEffect } from 'react'
+import { useEffect, useContext } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
+import { UserContext } from '../../App'
 
-export const Dashboard = ({ userInfo, setUserInfo }) => {
+export const Dashboard = () => {
   const { user, getAccessTokenSilently } = useAuth0()
+  const { userInfo, setUserInfo } = useContext(UserContext)
 
   // TODO Evaluate how to move to service file.
   const fetchUser = async () => {
@@ -49,7 +51,7 @@ export const Dashboard = ({ userInfo, setUserInfo }) => {
     fetchUser()
   }, [])
 
-  console.log(userInfo.user.Parties)
+  console.log(userInfo?.user)
 
   return (
     <Grid
