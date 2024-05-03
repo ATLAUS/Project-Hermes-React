@@ -2,6 +2,7 @@ import { Box, Typography } from '@mui/material'
 import { Stack, TextField, Button, MenuItem, FormControl } from '@mui/material'
 import { useState } from 'react'
 import './MatcherForm.scss'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const platforms = [
     { value: "PS5", label: "PS5" },
@@ -11,13 +12,21 @@ const platforms = [
 ];
 
 export const MatcherForm = () => {
+
+    const { user, getAccessTokenSilently } = useAuth0();
+
+    
+
     const [game, setGame] = useState("")
     const [platform, setPlatform] = useState("")
     const [objective, setObjective] = useState("")
     const [note, setNote] = useState("")
 
     async function submitHandler(e) {
+
         e.preventDefault();
+        console.log("clicked")
+
         const newMatcher = {
             game,
             platform,
@@ -25,22 +34,46 @@ export const MatcherForm = () => {
             note
         }
     
-    try {
-        await fetch(`localhost:3000/api/matchers`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(newMatcher)
-        })
-    } catch(err) {
-        console.log("error", err)
+        try {
+            // Get access token for Atlus backend
+            const accessToken = await getAccessTokenSilently({
+                authorizationParams: {
+                    audience: "http://localhost:3000/"
+                }
+            })
+
+            // Construct custom header, to pass user information 
+            const customHeader = {
+                "X-User-Info": JSON.stringify({
+                    email: user.email,
+                    nickname: user.nickname,
+                    sub: user.sub,
+                })
+            }
+
+            // Create Matcher Requsest 
+            const postMatcherForm = await fetch(`http://localhost:3000/api/matchers`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json", Authorization: `Bearer ${accessToken}`, ...customHeader},
+                body: JSON.stringify(newMatcher)
+            })
+
+            const response = await postMatcherForm.json()
+
+            console.log(response)
+        } catch(err) {
+            console.log("error", err)
+        }
+
+        alert("form submitted")
     }
-    }
+
 
     return(
         <Box className = "matcher-form-container">
             <h2>Project Hermes Matcher Form</h2>
             <h3>Please reach out to us if you have any questions!</h3>
-            <FormControl onSubmit={submitHandler}>
+            <form onSubmit={submitHandler}>
                 <Stack spacing={2}>
                     <TextField
                         type = "text"
@@ -92,9 +125,9 @@ export const MatcherForm = () => {
                         value = {note}
                         onChange={(e) => setNote(e.target.value)}
                     />
-                    <Button type = "submit" variant = "text">Submit</Button>
+                    <Button type="submit" variant = "text">Submit</Button>
                 </Stack>
-            </FormControl>
+            </form>
         </Box>
     )
 }
