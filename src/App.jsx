@@ -11,7 +11,8 @@ export const UserContext = createContext()
 const App = () => {
   //Create UserInfo state
   const [userInfo, setUserInfo] = useState({})
-  
+  const [parties, setParties] = useState(null)
+
   const { isLoading } = useAuth0()
 
   if (isLoading) {
@@ -26,7 +27,9 @@ const App = () => {
   return (
     <main>
       {/* Set userInfo state to be the value of UserContext */}
-      <UserContext.Provider value={{userInfo, setUserInfo}}>
+      <UserContext.Provider
+        value={{ userInfo, setUserInfo, parties, setParties }}
+      >
         <Routes>
           <Route path="/" element={<pages.Landing />}></Route>
           {/* TODO If login page is not completed replace with 404 page
