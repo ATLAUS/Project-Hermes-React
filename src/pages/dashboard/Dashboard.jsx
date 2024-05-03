@@ -7,7 +7,7 @@ import { PartyInfo } from './components/match-info/PartyInfo'
 import { useEffect } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 
-export const Dashboard = ({ dbUser, setDbUser }) => {
+export const Dashboard = ({ userInfo, setUserInfo }) => {
   const { user, getAccessTokenSilently } = useAuth0()
 
   // TODO Evaluate how to move to service file.
@@ -27,7 +27,7 @@ export const Dashboard = ({ dbUser, setDbUser }) => {
         })
       }
 
-      const getUser = 'http://localhost:3000/api/users'
+      const getUser = 'http://localhost:3000/api/users/user-info'
 
       const getUserResponse = await fetch(getUser, {
         headers: {
@@ -39,8 +39,7 @@ export const Dashboard = ({ dbUser, setDbUser }) => {
 
       const response = await getUserResponse.json()
 
-      console.log(response)
-      setDbUser(response)
+      setUserInfo(response)
     } catch (e) {
       console.log(e.message)
     }
@@ -50,7 +49,7 @@ export const Dashboard = ({ dbUser, setDbUser }) => {
     fetchUser()
   }, [])
 
-  console.log(dbUser)
+  console.log(userInfo.user.Parties)
 
   return (
     <Grid

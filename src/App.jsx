@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import { useState } from 'react'
 
 const App = () => {
-  const [dbUser, setDbUser] = useState(null)
+  const [userInfo, setUserInfo] = useState(null)
   const { isLoading } = useAuth0()
 
   if (isLoading) {
@@ -33,7 +33,7 @@ const App = () => {
           path="/dashboard"
           element={
             <components.ProtectedRoute>
-              <pages.Dashboard dbUser={dbUser} setDbUser={setDbUser} />
+              <pages.Dashboard userInfo={userInfo} setUserInfo={setUserInfo} />
             </components.ProtectedRoute>
           }
         ></Route>
