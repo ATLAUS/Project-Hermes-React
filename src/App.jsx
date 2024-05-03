@@ -3,10 +3,15 @@ import * as pages from './pages'
 import * as components from './components'
 import { useAuth0 } from '@auth0/auth0-react'
 import { Route, Routes } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, createContext } from 'react'
+
+// Create UserContext
+export const UserContext = createContext()
 
 const App = () => {
-  const [userInfo, setUserInfo] = useState(null)
+  //Create UserInfo state
+  const [userInfo, setUserInfo] = useState({})
+  
   const { isLoading } = useAuth0()
 
   if (isLoading) {
@@ -20,32 +25,35 @@ const App = () => {
 
   return (
     <main>
-      <Routes>
-        <Route path="/" element={<pages.Landing />}></Route>
-        {/* TODO If login page is not completed replace with 404 page
-        OR condense the two. */}
-        <Route path="/login" element={<pages.LoginPage />}></Route>
-        <Route
-          path="/unauthorized"
-          element={<pages.UnauthorizedPage />}
-        ></Route>
-        <Route
-          path="/dashboard"
-          element={
-            <components.ProtectedRoute>
-              <pages.Dashboard userInfo={userInfo} setUserInfo={setUserInfo} />
-            </components.ProtectedRoute>
-          }
-        ></Route>
-        <Route
-          path="/matcher-display"
-          element={
-            <components.ProtectedRoute>
-              <pages.MatcherDisplay />
-            </components.ProtectedRoute>
-          }
-        ></Route>
-      </Routes>
+      {/* Set userInfo state to be the value of UserContext */}
+      <UserContext.Provider value={{userInfo, setUserInfo}}>
+        <Routes>
+          <Route path="/" element={<pages.Landing />}></Route>
+          {/* TODO If login page is not completed replace with 404 page
+          OR condense the two. */}
+          <Route path="/login" element={<pages.LoginPage />}></Route>
+          <Route
+            path="/unauthorized"
+            element={<pages.UnauthorizedPage />}
+          ></Route>
+          <Route
+            path="/dashboard"
+            element={
+              <components.ProtectedRoute>
+                <pages.Dashboard />
+              </components.ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/matcher-display"
+            element={
+              <components.ProtectedRoute>
+                <pages.MatcherDisplay />
+              </components.ProtectedRoute>
+            }
+          ></Route>
+        </Routes>
+      </UserContext.Provider>
     </main>
   )
 }
