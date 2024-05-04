@@ -4,8 +4,8 @@ import { useContext } from 'react'
 import { UserContext } from '../../../../App'
 
 export const Messenger = () => {
-  const { parties } = useContext(UserContext)
-  // console.log(parties)
+  const { activeParty } = useContext(UserContext)
+  console.log(activeParty)
   const connect = () => {
     socket.connect()
   }
@@ -15,7 +15,7 @@ export const Messenger = () => {
   }
   return (
     <>
-      {parties && <p>Party Id: {parties[0].id}</p>}
+      {activeParty && <p>{activeParty.id}</p>}
       <p className="messenger">Messenger goes here!!!</p>
       <button onClick={connect}>Connect</button>
       <button onClick={disconnect}>Disconnect</button>

@@ -10,7 +10,7 @@ import { UserContext } from '../../App'
 
 export const Dashboard = () => {
   const { user, getAccessTokenSilently } = useAuth0()
-  const { userInfo, setUserInfo, parties, setParties } = useContext(UserContext)
+  const { setUserInfo, setActiveParty } = useContext(UserContext)
 
   // TODO Evaluate how to move to service file.
   const fetchUser = async () => {
@@ -40,12 +40,11 @@ export const Dashboard = () => {
       })
 
       const response = await getUserResponse.json()
-      console.log(response)
-
+      // console.log(response)
+      // Set the userInfo and activeParty state.
       setUserInfo(response.user)
-      // TODO Create 'activeParty' state
       if (response.activeParty.length > 0) {
-        setParties(response.activeParty)
+        setActiveParty(response.activeParty[0])
       }
     } catch (e) {
       console.log(`Error: ${e}`)

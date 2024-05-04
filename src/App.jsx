@@ -11,7 +11,7 @@ export const UserContext = createContext()
 const App = () => {
   //Create UserInfo state
   const [userInfo, setUserInfo] = useState({})
-  const [parties, setParties] = useState(null)
+  const [activeParty, setActiveParty] = useState(null)
 
   const { isLoading } = useAuth0()
 
@@ -28,7 +28,7 @@ const App = () => {
     <main>
       {/* Set userInfo state to be the value of UserContext */}
       <UserContext.Provider
-        value={{ userInfo, setUserInfo, parties, setParties }}
+        value={{ userInfo, setUserInfo, activeParty, setActiveParty }}
       >
         <Routes>
           <Route path="/" element={<pages.Landing />}></Route>
