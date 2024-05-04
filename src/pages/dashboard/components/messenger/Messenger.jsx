@@ -5,7 +5,7 @@ import { UserContext } from '../../../../App'
 
 export const Messenger = () => {
   const { parties } = useContext(UserContext)
-  console.log(parties)
+  // console.log(parties)
   const connect = () => {
     socket.connect()
   }
