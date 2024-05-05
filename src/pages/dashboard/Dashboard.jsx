@@ -10,7 +10,7 @@ import { UserContext } from '../../App'
 
 export const Dashboard = () => {
   const { user, getAccessTokenSilently } = useAuth0()
-  const { userInfo, setUserInfo, parties, setParties } = useContext(UserContext)
+  const { setUserInfo, setActiveParty } = useContext(UserContext)
 
   // TODO Evaluate how to move to service file.
   const fetchUser = async () => {
@@ -40,44 +40,12 @@ export const Dashboard = () => {
       })
 
       const response = await getUserResponse.json()
-
+      // console.log(response)
+      // Set the userInfo and activeParty state.
       setUserInfo(response.user)
-    } catch (e) {
-      console.log(`Error: ${e}`)
-    }
-  }
-
-  // TODO Evaluate how to move to service file.
-  const fetchParties = async () => {
-    try {
-      const accessToken = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: 'http://localhost:3000/'
-        }
-      })
-
-      const customUserHeader = {
-        'X-User-Info': JSON.stringify({
-          email: user.email,
-          nickname: user.nickname,
-          sub: user.sub
-        })
+      if (response.activeParty.length > 0) {
+        setActiveParty(response.activeParty[0])
       }
-
-      const getParties = 'http://localhost:3000/api/parties'
-
-      const getPartiesResponse = await fetch(getParties, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`,
-          ...customUserHeader
-        }
-      })
-
-      // Error thrown here if no parties are found.
-      // Will see 404 not found and "N" not valid JSON.
-      const response = await getPartiesResponse.json()
-      setParties(response.parties)
     } catch (e) {
       console.log(`Error: ${e}`)
     }
@@ -85,11 +53,7 @@ export const Dashboard = () => {
 
   useEffect(() => {
     fetchUser()
-    fetchParties()
   }, [])
-
-  // console.log(userInfo)
-  // console.log(parties)
 
   return (
     <Grid
