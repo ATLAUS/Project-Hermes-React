@@ -12,6 +12,8 @@ const platforms = [
   { value: 'PC', label: 'PC' }
 ]
 
+const gamenames = ["EAFC", "Call of Duty", "Apex Legends", "Escape from Tarkov", "Rainbow Six Siege", "Grey Zone Warfare", "Helldivers 2", "Palworld", "Rust", "Counter-Strke 2", "Dota 2", "League of Legends", "PUBG: BattleGrounds", "GTA V", "Baldur's Gate 3" ]
+
 export const MatcherForm = () => {
   const navigate = useNavigate()
   const { user, getAccessTokenSilently } = useAuth0()
@@ -82,12 +84,19 @@ export const MatcherForm = () => {
             variant="outlined"
             label="Game Name"
             InputProps={{ style: { color: 'white' } }}
+            select
             fullWidth
             required
             focused
             value={gameName}
             onChange={(e) => setGameName(e.target.value)}
-          />
+          >
+            {gamenames.map((gamename) => (
+              <MenuItem key={gamename} value={gamename}>
+                {gamename}
+              </MenuItem>
+            ))}
+          </TextField>
           <TextField
             type="text"
             variant="outlined"
