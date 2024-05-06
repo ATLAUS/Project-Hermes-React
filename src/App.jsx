@@ -36,7 +36,7 @@ const App = () => {
           OR condense the two. */}
           <Route path="/login" element={<pages.LoginPage />}></Route>
           <Route
-            path="/unauthorized"
+            path="/404"
             element={<pages.UnauthorizedPage />}
           ></Route>
           <Route

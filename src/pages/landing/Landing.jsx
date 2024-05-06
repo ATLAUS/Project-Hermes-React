@@ -1,7 +1,13 @@
+import { LoginButton } from '../../components'
+import { LogoutButton } from '../../components'
+import { useAuth0 } from '@auth0/auth0-react'
 import './Landing.scss'
-import { LoginButton } from './components/login-button/LoginButton'
+
 
 export const Landing = () => {
+
+  const {isAuthenticated } = useAuth0()
+  
   return (
     <>
       <section className="landing-container">
@@ -12,7 +18,7 @@ export const Landing = () => {
               src="https://img.freepik.com/free-vector/video-game-controls-neon-style-brick-wall_24908-58916.jpg?w=740&t=st=1714157158~exp=1714157758~hmac=ba3c7319cd3c474dac0ed7d93b143d78b6db633459121d5e450867937ae0d352"
               alt="Controller"
             />
-            <LoginButton />
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </div>
           <div className="title-container">
             <h1>Title</h1>
@@ -46,7 +52,7 @@ export const Landing = () => {
           ></img>
           <div className="details3-button">
             <p>Call To Action</p>
-            <LoginButton />
+            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </div>
         </div>
         <footer>
