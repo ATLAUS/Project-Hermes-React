@@ -1,5 +1,5 @@
 import './UnauthorizedPage.scss'
-import { LoginButton } from '../../components/login-button/LoginButton'
+import { LoginButton } from '../../components'
 
 
 
