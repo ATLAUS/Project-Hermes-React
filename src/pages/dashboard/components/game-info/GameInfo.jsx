@@ -45,7 +45,7 @@ export const GameInfo = () => {
 
     return(
         <Box className='game-info-container'>
-            <Typography>{gameName ? gameName : ""}</Typography>
+            <Typography>{gameName && gameName}</Typography>
             <CardMedia
                 sx={{height: 150}}
                 image={gameData.background_image}

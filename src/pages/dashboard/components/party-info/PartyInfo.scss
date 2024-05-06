@@ -10,4 +10,7 @@ $outer-border-radius: 25px;
     margin-top: 5%;
     border: 5px solid theme.$secondary-bg-color;
     border-radius: $outer-border-radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
