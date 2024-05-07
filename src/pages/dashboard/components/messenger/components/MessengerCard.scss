@@ -1,0 +1,28 @@
+.messenger-card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message-display {
+  height: 95%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-input {
+  display: flex;
+  height: 5%;
+  width: 100%;
+}
+
+.input {
+  width: 90%;
+}
+
+.send-btn {
+  width: 10%
+}

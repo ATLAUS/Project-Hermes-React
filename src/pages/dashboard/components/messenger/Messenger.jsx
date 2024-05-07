@@ -11,9 +11,12 @@ export const Messenger = () => {
   const { user, getAccessTokenSilently } = useAuth0()
   const userId = user.sub.split('|')[1]
 
-  // TODO move these connection functions to a useEffect
   const connect = () => {
-    socket.auth = { userId: userId, partyId: activeParty.id }
+    socket.auth = {
+      userId: userId,
+      partyId: activeParty.id,
+      chatId: activeParty.Chat.id
+    }
     socket.connect()
   }
   const disconnect = () => {
@@ -55,10 +58,6 @@ export const Messenger = () => {
     }
   }
 
-  // TODO Implement useEffect function here
-  // On render it should get all the messages for the party
-  // and then connect to the socket.
-
   useEffect(() => {
     activeParty && (connect(), fetchMessages())
 
@@ -69,8 +68,15 @@ export const Messenger = () => {
 
   return (
     <>
-      {activeParty && <p>{activeParty.id}</p>}
-      <MessengerCard messages={messages} />
+      <div className="messenger-container">
+        {activeParty && (
+          <MessengerCard
+            messages={messages}
+            activeParty={activeParty}
+            user={user}
+          />
+        )}
+      </div>
     </>
   )
 }
