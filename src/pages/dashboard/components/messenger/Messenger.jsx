@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { MessengerCard } from './components/MessengerCard'
 
 export const Messenger = () => {
-  const [messages, setMessages] = useState(null)
+  const [messages, setMessages] = useState([])
   const { activeParty } = useContext(UserContext)
   const { user, getAccessTokenSilently } = useAuth0()
   const userId = user.sub.split('|')[1]

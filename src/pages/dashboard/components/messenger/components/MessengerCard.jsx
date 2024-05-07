@@ -1,10 +1,11 @@
 import { socket } from '../../../../../socket'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './MessengerCard.scss'
 import SendIcon from '@mui/icons-material/Send'
 
 export const MessengerCard = ({ messages, activeParty, user }) => {
   const [message, setMessage] = useState('')
+  const [socketMessages, setSocketMessages] = useState([...messages])
 
   const partyId = activeParty?.id
 
@@ -21,9 +22,19 @@ export const MessengerCard = ({ messages, activeParty, user }) => {
     setMessage('')
   }
 
+  socket.on('return-message', ({ message }) => {
+    let messageArr = [...socketMessages]
+    messageArr.push(message)
+    setSocketMessages(messageArr)
+  })
+
   return (
     <div className="messenger-card">
-      <div className="message-display"></div>
+      <div className="message-display">
+        {socketMessages.length > 0
+          ? socketMessages.map((msg, idx) => <div key={idx}>{msg}</div>)
+          : null}
+      </div>
       <form className="message-input" onSubmit={sendMessage}>
         <input
           className="input"
