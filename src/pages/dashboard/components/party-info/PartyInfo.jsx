@@ -6,10 +6,13 @@ import './PartyInfo.scss'
 // Import useContext and the context we created (UserContext)
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../../../App'
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 export const PartyInfo = () => {
+  const { user, getAccessTokenSilently } = useAuth0()
   // Destructure the parts of the context we are using
-  const { userInfo, activeParty } = useContext(UserContext)
+  const { userInfo, activeParty, setActiveParty } = useContext(UserContext)
   const [rematching, setRematching] = useState(false)
   const [leavingParty, setLeavingParty] = useState(false)
   const [matchedUser, setMatchedUser] = useState({})
@@ -26,8 +29,48 @@ export const PartyInfo = () => {
     }
   }
 
+  const leaveParty = async () => {
+    try {
+      const accessToken = await getAccessTokenSilently({
+        authorizationParams: {
+          audience: 'http://localhost:3000/'
+        }
+      })
+
+      const customUserHeader = {
+        'X-User-Info': JSON.stringify({
+          email: user.email,
+          nickname: user.nickname,
+          sub: user.sub
+        })
+      }
+
+      const leavePartyUrl = `http://localhost:3000/api/parties/leave/${activeParty.id}`
+
+      const leavePartyResponse = await fetch(leavePartyUrl, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+          ...customUserHeader
+        }
+      })
+      console.log(leavePartyResponse)
+      if (!leavePartyResponse.ok) {
+        throw new Error(`Error leaving party: ${leavePartyResponse.statusText}`)
+      }
+
+      setActiveParty({})
+    } catch (error) {
+      console.log("There was an error leaving the Party: ", error)
+    }
+
+  }
+
   useEffect(() => {
-    findMatchedUser()
+    if (activeParty) {
+      findMatchedUser()
+    }
   }, [activeParty])
 
 
@@ -37,7 +80,7 @@ export const PartyInfo = () => {
         <Typography>{matchedUser?.userName}</Typography>
         <PersonIcon fontSize='large' />
         <Stack direction="row" spacing={7}>
-          <Button><LogoutIcon/></Button>
+          <Button onClick={leaveParty}><LogoutIcon/></Button>
           <Button><LoopIcon/></Button>
         </Stack>
 
