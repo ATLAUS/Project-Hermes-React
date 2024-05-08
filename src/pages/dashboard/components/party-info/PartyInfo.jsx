@@ -12,7 +12,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 export const PartyInfo = () => {
   const { user, getAccessTokenSilently } = useAuth0()
   // Destructure the parts of the context we are using
-  const { userInfo, activeParty, setActiveParty } = useContext(UserContext)
+  const { userInfo, activeParty, setActiveParty, setGameData } = useContext(UserContext)
   const [rematching, setRematching] = useState(false)
   const [leavingParty, setLeavingParty] = useState(false)
   const [matchedUser, setMatchedUser] = useState({})
@@ -60,12 +60,15 @@ export const PartyInfo = () => {
         throw new Error(`Error leaving party: ${leavePartyResponse.statusText}`)
       }
 
-      setActiveParty({})
+      setActiveParty(null)
+      setGameData(null)
     } catch (error) {
       console.log("There was an error leaving the Party: ", error)
     }
 
   }
+
+  console.log(userInfo)
 
   useEffect(() => {
     if (activeParty) {
@@ -73,18 +76,23 @@ export const PartyInfo = () => {
     }
   }, [activeParty])
 
+  console.log(activeParty)
 
   return (
     <Box className="party-info-container">
-      <Stack spacing={15} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <Typography>{matchedUser?.userName}</Typography>
-        <PersonIcon fontSize='large' />
-        <Stack direction="row" spacing={7}>
-          <Button onClick={leaveParty}><LogoutIcon/></Button>
-          <Button><LoopIcon/></Button>
-        </Stack>
-
-      </Stack>
+        { activeParty ? (
+          <Stack spacing={5} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Typography>{matchedUser?.userName}</Typography>
+            <PersonIcon fontSize='large' />
+            <Stack direction="row" spacing={7}>
+              <Button onClick={leaveParty}><LogoutIcon/></Button>
+              <Button><LoopIcon/></Button>
+            </Stack>
+          </Stack>
+        ) : (
+          <></>
+        )
+      }
       
     </Box>
   )
