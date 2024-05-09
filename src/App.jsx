@@ -12,6 +12,7 @@ const App = () => {
   //Create UserInfo state
   const [userInfo, setUserInfo] = useState({})
   const [activeParty, setActiveParty] = useState(null)
+  const [messages, setMessages] = useState(null)
   const [gameData, setGameData] = useState({})
 
   const { isLoading } = useAuth0()
@@ -29,17 +30,23 @@ const App = () => {
     <main>
       {/* Set userInfo state to be the value of UserContext */}
       <UserContext.Provider
-        value={{ userInfo, setUserInfo, activeParty, setActiveParty, gameData, setGameData }}
+        value={{
+          userInfo,
+          setUserInfo,
+          activeParty,
+          setActiveParty,
+          messages,
+          setMessages,
+          gameData,
+          setGameData
+        }}
       >
         <Routes>
           <Route path="/" element={<pages.Landing />}></Route>
           {/* TODO If login page is not completed replace with 404 page
           OR condense the two. */}
           <Route path="/login" element={<pages.LoginPage />}></Route>
-          <Route
-            path="/404"
-            element={<pages.UnauthorizedPage />}
-          ></Route>
+          <Route path="/404" element={<pages.UnauthorizedPage />}></Route>
           <Route
             path="/dashboard"
             element={

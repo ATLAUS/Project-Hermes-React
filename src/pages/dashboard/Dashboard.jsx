@@ -40,7 +40,7 @@ export const Dashboard = () => {
       })
 
       const response = await getUserResponse.json()
-      // console.log(response)
+
       // Set the userInfo and activeParty state.
       setUserInfo(response.user)
       if (response.activeParty.length > 0) {
@@ -55,8 +55,6 @@ export const Dashboard = () => {
     fetchUser()
   }, [])
 
- 
-
   return (
     <Grid
       container
@@ -69,9 +67,7 @@ export const Dashboard = () => {
         <PartyInfo />
       </Grid>
       <Grid item xs={6} sx={{ height: '80%' }}>
-        <Box
-          sx={{ border: 'solid red 1px', borderRadius: '5px', height: '100%' }}
-        >
+        <Box sx={{ borderRadius: '5px', height: '100%' }}>
           <Messenger />
         </Box>
       </Grid>
