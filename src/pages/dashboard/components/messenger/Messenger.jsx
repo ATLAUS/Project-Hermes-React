@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react'
 import { MessengerCard } from './components/MessengerCard'
 
 export const Messenger = () => {
-  const { activeParty, messages, setMessages } = useContext(UserContext)
+  const { activeParty, setMessages } = useContext(UserContext)
   const { user, getAccessTokenSilently } = useAuth0()
   const userId = user?.sub.split('|')[1]
   const partyId = activeParty?.id
@@ -52,7 +52,9 @@ export const Messenger = () => {
       })
 
       const response = await getMessagesResponse.json()
-      setMessages(response.messages)
+      if (response.messages.length > 0) {
+        setMessages(response.messages)
+      }
     } catch (e) {
       console.log(`Error: ${e}`)
     }
@@ -69,10 +71,7 @@ export const Messenger = () => {
   return (
     <>
       <div className="messenger-container">
-        {/* {activeParty && (
-          <MessengerCard messages={messages} activeParty={activeParty} />
-        )} */}
-        {messages && <MessengerCard />}
+        {activeParty && <MessengerCard />}
       </div>
     </>
   )
