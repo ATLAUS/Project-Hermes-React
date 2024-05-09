@@ -4,8 +4,7 @@ import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../../../App'
 
 export const GameInfo = () => {
-  const { activeParty } = useContext(UserContext)
-  const [gameData, setGameData] = useState({})
+  const { activeParty, gameData, setGameData } = useContext(UserContext)
 
   const gameName = activeParty?.gameName
 
@@ -39,17 +38,23 @@ export const GameInfo = () => {
 
   return (
     <Box className="game-info-container">
-      <Typography>{gameName && gameName}</Typography>
-      <CardMedia
-        sx={{ height: 150 }}
-        image={gameData.background_image}
-      ></CardMedia>
-      <Typography>
-        {gameData.website && `Website: ${gameData.website}`}
-      </Typography>
-      <Typography>
-        {gameData.released && `Release Date: ${gameData.released}`}
-      </Typography>
+      {gameData ? (
+        <>
+          <Typography>{gameName && gameName}</Typography>
+          <CardMedia
+            sx={{ height: 150 }}
+            image={gameData?.background_image}
+          ></CardMedia>
+          <Typography>
+            {gameData.website && `Website: ${gameData.website}`}
+          </Typography>
+          <Typography>
+            {gameData.released && `Release Date: ${gameData.released}`}
+          </Typography>
+        </>
+      ) : (
+        <></>
+      )}
     </Box>
   )
 }

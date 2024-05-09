@@ -13,6 +13,7 @@ const App = () => {
   const [userInfo, setUserInfo] = useState({})
   const [activeParty, setActiveParty] = useState(null)
   const [messages, setMessages] = useState(null)
+  const [gameData, setGameData] = useState({})
 
   const { isLoading } = useAuth0()
 
@@ -35,7 +36,9 @@ const App = () => {
           activeParty,
           setActiveParty,
           messages,
-          setMessages
+          setMessages,
+          gameData,
+          setGameData
         }}
       >
         <Routes>
@@ -43,10 +46,7 @@ const App = () => {
           {/* TODO If login page is not completed replace with 404 page
           OR condense the two. */}
           <Route path="/login" element={<pages.LoginPage />}></Route>
-          <Route
-            path="/unauthorized"
-            element={<pages.UnauthorizedPage />}
-          ></Route>
+          <Route path="/404" element={<pages.UnauthorizedPage />}></Route>
           <Route
             path="/dashboard"
             element={
