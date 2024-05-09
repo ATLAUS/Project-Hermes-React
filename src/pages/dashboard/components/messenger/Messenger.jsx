@@ -70,11 +70,7 @@ export const Messenger = () => {
     <>
       <div className="messenger-container">
         {activeParty && (
-          <MessengerCard
-            messages={messages}
-            activeParty={activeParty}
-            user={user}
-          />
+          <MessengerCard messages={messages} activeParty={activeParty} />
         )}
       </div>
     </>
