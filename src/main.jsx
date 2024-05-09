@@ -11,8 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     clientId="HZ3nBT1D3gZsller6vHzO0k4K9NS73UX"
     authorizationParams={{
       redirect_uri:
-        import.meta.env.VITE_REDIRECT_URI || 'http://localhost:5173/dashboard',
-      audience: import.meta.env.VITE_AUDIENCE || 'http://localhost:3000/'
+        import.meta.env.PROD.VITE_REDIRECT_URI ||
+        'http://localhost:5173/dashboard',
+      audience: import.meta.env.PROD.VITE_AUDIENCE || 'http://localhost:3000/'
     }}
   >
     <BrowserRouter>
