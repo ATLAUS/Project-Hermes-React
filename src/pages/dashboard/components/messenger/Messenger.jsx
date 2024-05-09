@@ -1,21 +1,22 @@
 import './Messenger.scss'
 import { socket } from '../../../../socket'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../../../../App'
 import { useAuth0 } from '@auth0/auth0-react'
 import { MessengerCard } from './components/MessengerCard'
 
 export const Messenger = () => {
-  const [messages, setMessages] = useState([])
-  const { activeParty } = useContext(UserContext)
+  const { activeParty, messages, setMessages } = useContext(UserContext)
   const { user, getAccessTokenSilently } = useAuth0()
-  const userId = user.sub.split('|')[1]
+  const userId = user?.sub.split('|')[1]
+  const partyId = activeParty?.id
+  const chatId = activeParty?.Chat.id
 
   const connect = () => {
     socket.auth = {
       userId: userId,
-      partyId: activeParty.id,
-      chatId: activeParty.Chat.id
+      partyId: partyId,
+      chatId: chatId
     }
     socket.connect()
   }
@@ -51,8 +52,7 @@ export const Messenger = () => {
       })
 
       const response = await getMessagesResponse.json()
-
-      console.log(response)
+      setMessages(response.messages)
     } catch (e) {
       console.log(`Error: ${e}`)
     }
@@ -64,14 +64,15 @@ export const Messenger = () => {
     return () => {
       disconnect()
     }
-  })
+  }, [activeParty])
 
   return (
     <>
       <div className="messenger-container">
-        {activeParty && (
+        {/* {activeParty && (
           <MessengerCard messages={messages} activeParty={activeParty} />
-        )}
+        )} */}
+        {messages && <MessengerCard />}
       </div>
     </>
   )

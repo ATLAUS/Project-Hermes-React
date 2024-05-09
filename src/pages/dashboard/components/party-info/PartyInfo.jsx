@@ -1,7 +1,7 @@
 import { Box, Button, Typography, Stack } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout'
-import LoopIcon from '@mui/icons-material/Loop';
-import PersonIcon from '@mui/icons-material/Person';
+import LoopIcon from '@mui/icons-material/Loop'
+import PersonIcon from '@mui/icons-material/Person'
 import './PartyInfo.scss'
 // Import useContext and the context we created (UserContext)
 import { useContext, useState } from 'react'
@@ -13,19 +13,23 @@ export const PartyInfo = () => {
   const [rematchin, setRematching] = useState(false)
   const [leavingParty, setLeavingParty] = useState(false)
 
-  console.log(userInfo)
   return (
     <Box className="party-info-container">
-      <Stack spacing={15} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <Stack
+        spacing={15}
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+      >
         <Typography>{userInfo?.userName}</Typography>
-        <PersonIcon fontSize='large' />
+        <PersonIcon fontSize="large" />
         <Stack direction="row" spacing={7}>
-          <Button><LogoutIcon/></Button>
-          <Button><LoopIcon/></Button>
+          <Button>
+            <LogoutIcon />
+          </Button>
+          <Button>
+            <LoopIcon />
+          </Button>
         </Stack>
-
       </Stack>
-      
     </Box>
   )
 }
