@@ -29,7 +29,7 @@ export const Messenger = () => {
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: 'http://localhost:3000/'
+          audience: import.meta.env.VITE_AUDIENCE || 'http://localhost:3000/'
         }
       })
 
@@ -41,7 +41,9 @@ export const Messenger = () => {
         })
       }
 
-      const getMessages = `http://localhost:3000/api/messages/${activeParty.id}`
+      const getMessages = import.meta.env.VITE_AUDIENCE
+        ? `https://project-hermes.onrender.com/api/messages/${activeParty.id}`
+        : `http://localhost:3000/api/messages/${activeParty.id}`
 
       const getMessagesResponse = await fetch(getMessages, {
         headers: {
