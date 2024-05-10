@@ -1,5 +1,9 @@
 import { io } from 'socket.io-client'
 
-export const socket = io('http://localhost:3000', {
+const socketAddress = import.meta.env.VITE_AUDIENCE
+  ? 'https://project-hermes.onrender.com'
+  : 'http://localhost:3000'
+
+export const socket = io(socketAddress, {
   autoConnect: false
 })
