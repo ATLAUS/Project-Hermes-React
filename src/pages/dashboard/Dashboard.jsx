@@ -17,7 +17,7 @@ export const Dashboard = () => {
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: 'http://localhost:3000/'
+          audience: import.meta.env.VITE_AUDIENCE || 'http://localhost:3000/'
         }
       })
 
@@ -29,7 +29,9 @@ export const Dashboard = () => {
         })
       }
 
-      const getUser = 'http://localhost:3000/api/users/user-info'
+      const getUser = import.meta.env.VITE_AUDIENCE
+        ? 'https://project-hermes.onrender.com/api/users/user-info'
+        : 'http://localhost:3000/api/users/user-info'
 
       const getUserResponse = await fetch(getUser, {
         headers: {
@@ -40,6 +42,7 @@ export const Dashboard = () => {
       })
 
       const response = await getUserResponse.json()
+      console.log(response)
 
       // Set the userInfo and activeParty state.
       setUserInfo(response.user)
