@@ -51,7 +51,11 @@ export const MessengerCard = () => {
           messages.map((message) => (
             <div
               key={message.id}
-              className={message.UserId === userId ? 'sent' : 'received'}
+              className={
+                message.UserId === userId
+                  ? 'sent chat-bubble'
+                  : 'received chat-bubble'
+              }
             >
               <p>{message.message}</p>
             </div>
