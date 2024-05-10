@@ -12,7 +12,23 @@ const platforms = [
   { value: 'PC', label: 'PC' }
 ]
 
-const gamenames = ["EAFC", "Call of Duty", "Apex Legends", "Escape from Tarkov", "Rainbow Six Siege", "Grey Zone Warfare", "Helldivers 2", "Palworld", "Rust", "Counter-Strke 2", "Dota 2", "League of Legends", "PUBG: BattleGrounds", "GTA V", "Baldur's Gate 3" ]
+const gamenames = [
+  'EAFC',
+  'Call of Duty',
+  'Apex Legends',
+  'Escape from Tarkov',
+  'Rainbow Six Siege',
+  'Grey Zone Warfare',
+  'Helldivers 2',
+  'Palworld',
+  'Rust',
+  'Counter-Strike 2',
+  'Dota 2',
+  'League of Legends',
+  'PUBG: BattleGrounds',
+  'GTA V',
+  "Baldur's Gate 3"
+]
 
 export const MatcherForm = () => {
   const navigate = useNavigate()
@@ -37,7 +53,7 @@ export const MatcherForm = () => {
       // Get access token for ATLAUS backend.
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: 'http://localhost:3000/'
+          audience: import.meta.env.VITE_AUDIENCE || 'http://localhost:3000/'
         }
       })
 
@@ -50,19 +66,19 @@ export const MatcherForm = () => {
         })
       }
 
+      const postMatcher = import.meta.env.VITE_AUDIENCE
+        ? 'https://project-hermes.onrender.com/api/matchers'
+        : `http://localhost:3000/api/matchers`
       // Create Matcher request.
-      const postMatcherForm = await fetch(
-        `http://localhost:3000/api/matchers`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${accessToken}`,
-            ...customHeader
-          },
-          body: JSON.stringify({ matcher: newMatcher })
-        }
-      )
+      const postMatcherForm = await fetch(postMatcher, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
+          ...customHeader
+        },
+        body: JSON.stringify({ matcher: newMatcher })
+      })
 
       // If a party is returned. Save that party in local storage.
       const response = await postMatcherForm.json()

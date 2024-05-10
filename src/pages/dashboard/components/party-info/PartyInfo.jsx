@@ -32,7 +32,7 @@ export const PartyInfo = () => {
     try {
       const accessToken = await getAccessTokenSilently({
         authorizationParams: {
-          audience: 'http://localhost:3000/'
+          audience: import.meta.env.VITE_AUDIENCE || 'http://localhost:3000/'
         }
       })
 
@@ -44,7 +44,9 @@ export const PartyInfo = () => {
         })
       }
 
-      const leavePartyUrl = `http://localhost:3000/api/parties/leave/${activeParty.id}`
+      const leavePartyUrl = import.meta.env.VITE_AUDIENCE
+        ? `https://project-hermes.onrender.com/api/parties/leave/${activeParty.id}`
+        : `http://localhost:3000/api/parties/leave/${activeParty.id}`
 
       const leavePartyResponse = await fetch(leavePartyUrl, {
         method: 'PUT',
