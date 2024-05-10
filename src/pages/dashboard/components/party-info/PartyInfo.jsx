@@ -33,8 +33,6 @@ export const PartyInfo = () => {
     }
   }
 
-  console.log(matchedUser)
-
   const leaveParty = async () => {
     try {
       const accessToken = await getAccessTokenSilently({
@@ -109,11 +107,11 @@ export const PartyInfo = () => {
 
       const response = await rematchPartyResponse.json()
 
-      console.log("Response ", response.party)
+
 
       response.party ? setActiveParty(response.party) : setActiveParty(null)
       setMessages(null)
-      console.log("Active Party: ", activeParty)
+
     } catch (error) {
       console.log('There was an error rematching the Party: ', error)
     }
