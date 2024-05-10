@@ -6,6 +6,7 @@ $info-box-height: 32%;
 $info-box-margin: 5px;
 $inner-border-radius: 20px;
 $outer-border-radius: 25px;
+$matcher-info-box-text-padding: 100px;
 
 .matcher-info-container {
     background-color: theme.$primary-bg-color;
@@ -24,8 +25,14 @@ $outer-border-radius: 25px;
     border-radius: $inner-border-radius;
     background-color: theme.$secondary-bg-color;
     margin: $info-box-margin;
+    padding-left: $matcher-info-box-text-padding;
+    padding-right: $matcher-info-box-text-padding;
     display: flex;
-    justify-content: center;
+    align-items: center;
+}
+
+.matcher-info-text {
+    display: flex;
     align-items: center;
 }
 
