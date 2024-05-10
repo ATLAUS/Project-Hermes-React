@@ -42,7 +42,6 @@ export const Dashboard = () => {
       })
 
       const response = await getUserResponse.json()
-      console.log(response)
 
       // Set the userInfo and activeParty state.
       setUserInfo(response.user)
