@@ -21,12 +21,14 @@ export const PartyInfo = () => {
     if (activeParty) {
       const users = activeParty?.Users
       for (const user of users) {
-        if (user !== userInfo) {
+        if (user.id !== userInfo.id) {
           setMatchedUser(user)
         }
       }
     }
   }
+
+  console.log(matchedUser)
 
   const leaveParty = async () => {
     try {
