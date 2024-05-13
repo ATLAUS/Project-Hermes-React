@@ -147,9 +147,11 @@ export const PartyInfo = () => {
           </Stack>
         </Stack>
       ) : (
-        <>
-          <Button onClick={()=>navigate('/matcher-display')}>Create a Matcher</Button>
-        </>
+          <Stack spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+            <img className='no-party-img' src='https://lh3.googleusercontent.com/gg/ANIJZFExT5UYq0j1TcqrugduoXtmNbhPnuJfTAOFZeZXHGnuSVucqBH1CGXBxX7u3EJEqguft0hSO3t3bfh82fdVY8bnLXCkxKgL9k9GAE6b5R7W6o2CYzbnON8mXq3bH2jb08xxDIDLCFSLImyfMASD3vU689bOIQh8np9nW8RAN7-pXog2CtGiaTNl0nYZrSl2VfYUK_55CouZJl-XFGrC6LJ9oNvPhu4dtcZAZBDk_wKM8dJfuauPT5CoDT3T1KGU4Fj8-DhHpNo1AmQMtBwiet3hyL8Uuvp1-W5HbxpoM7QEUrTbYmohMj2FrDScCq5IBScduE-OGv6YueKpT16XeBmW'/>
+            <Typography>Bummer! You're not in a party!</Typography>
+            <Button onClick={()=>navigate('/matcher-display')}>Create a Matcher</Button>
+          </Stack>
       )}
     </Box>
   )
