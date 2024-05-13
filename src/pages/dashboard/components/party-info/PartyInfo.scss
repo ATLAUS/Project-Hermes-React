@@ -1,15 +1,11 @@
 @use '../../../../theme';
 
-$outer-border-radius: 25px;
-
 .party-info-container {
-    height: 45%; 
+    height: 50%; 
     width: 100%; 
-    background-color: rgba(18, 18, 18, 0.6);
+    background-color: theme.$secondary-bg-color;
     backdrop-filter: blur(xpx);
-    margin-top: 5%;
-    border: 5px solid theme.$secondary-bg-color;
-    border-radius: $outer-border-radius;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,5 +14,5 @@ $outer-border-radius: 25px;
 .no-party-img {
     height: 75%;
     width: 75%;
-    border-radius: 15px;
+    border-radius: 5px;
 }
