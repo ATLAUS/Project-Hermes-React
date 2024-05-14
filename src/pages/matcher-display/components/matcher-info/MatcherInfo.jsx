@@ -10,8 +10,8 @@ export const MatcherInfo = () => {
             <Box className = 'matcher-info-box'>
                 <Stack direction="column" spacing={2}>
                     <Stack className = 'matcher-info-text' direction = "row" spacing = {2}>
-                        <SportsEsportsOutlinedIcon fontSize = "large" />
-                        <Typography>Choose a Game</Typography>
+                        <SportsEsportsOutlinedIcon sx={{fontSize: 48, color: '#e94235'}} />
+                        <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Choose a Game</Typography>
                     </Stack>
                     <Typography className='text-specifications'>Select a game to play from our list of ... pre-determined titles.</Typography>
                 </Stack>
@@ -19,8 +19,8 @@ export const MatcherInfo = () => {
             <Box className = 'matcher-info-box'>
                  <Stack direction="column" spacing={2}>
                     <Stack className='matcher-info-text' direction="row" spacing = {2}>
-                        <FlagCircleOutlinedIcon fontSize='large'/>
-                        <Typography>Select an Objective</Typography>
+                        <FlagCircleOutlinedIcon sx={{fontSize: 48, color: '#34a853'}}/>
+                        <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Select an Objective</Typography>
                     </Stack>
                     <Typography className='text-specifications'>Set a clear and concise objective that gives your teammate direction regarding what you expect to accomplish with them in game. </Typography>
                 </Stack>
@@ -28,8 +28,8 @@ export const MatcherInfo = () => {
             <Box className = 'matcher-info-box'>
                  <Stack direction="column" spacing={2}>
                     <Stack className='matcher-info-text' direction="row" spacing = {2}>
-                        <NoteAddOutlinedIcon fontSize='large' />
-                        <Typography>Add a Note</Typography>
+                        <NoteAddOutlinedIcon sx={{fontSize: 48, color: '#fabb22'}} />
+                        <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Add a Note</Typography>
                     </Stack>
                     <Typography className='text-specifications'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Typography>
                 </Stack>
