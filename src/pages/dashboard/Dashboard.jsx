@@ -1,5 +1,5 @@
 // Removed Typography import to get rid of linter error.
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, Stack } from '@mui/material'
 import './Dashboard.scss'
 import { Messenger } from './components/messenger/Messenger'
 import { GameInfo } from './components/game-info/GameInfo'
@@ -42,7 +42,6 @@ export const Dashboard = () => {
       })
 
       const response = await getUserResponse.json()
-      console.log(response)
 
       // Set the userInfo and activeParty state.
       setUserInfo(response.user)
@@ -66,8 +65,10 @@ export const Dashboard = () => {
       sx={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}
     >
       <Grid item xs={3} sx={{ height: '80%' }}>
-        <GameInfo />
-        <PartyInfo />
+        <Stack spacing={3} sx={{height: '100%'}}>
+            <GameInfo />
+            <PartyInfo />
+        </Stack>
       </Grid>
       <Grid item xs={6} sx={{ height: '80%' }}>
         <Box sx={{ borderRadius: '5px', height: '100%' }}>
