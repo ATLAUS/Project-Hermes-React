@@ -1,0 +1,45 @@
+@use '../../theme';
+
+.unauthorized-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: theme.$primary-bg-color;
+}
+
+.message-container {
+    width: 60%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: theme.$accent-color-g-two;
+}
+
+.unauthorized-title {
+    font-size: 100px;
+}
+
+.divider {
+    color: black;
+    border: red 5px;
+}
+
+.unauthorized-message {
+    color: theme.$primary-bg-color;
+    font-size: 40px;
+}
+
+.unauthorized-login{
+    color: theme.$primary-bg-color;
+}
+
+.vertical-divider {
+    height: 1px;
+    width: 40%;
+    background-color: black;
+}
