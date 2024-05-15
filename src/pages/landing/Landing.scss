@@ -1,102 +1,80 @@
 .landing-container {
-  // we want the child to be 100% of the parent its filling up the size of the body
-  width: 100%;
   height: 100%;
+  width: 100%;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-.header-container {
-  width: 100%;
-  height: 75%;
+// TODO Add the background gradient img
+// and the ::after pseudo selector for the transparency gradient.
+.hero-container {
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  height: 85%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
-.nav-container {
-  width: 100%;
-  height: 10%;
+.nav-bar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  height: 10%;
+  width: 80%;
+  z-index: 2;
 }
 
 .logo {
-  width: 70px;
-  height: 50px;
-  border-radius: 50%;
+  height: 100%;
 }
-
 
 .title-container {
   height: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background-image: url('https://images.unsplash.com/photo-1586182987320-4f376d39d787?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover;
-  background-position: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
 }
 
-.details {
+.title {
+  font-size: 10em;
+}
+
+.info-container {
+  height: 40%;
   width: 100%;
-  height: 75%;
   display: flex;
-  flex-direction: row;
+  align-items: center;
   justify-content: space-evenly;
-  align-items: center;
-  background-image: url('https://images.unsplash.com/photo-1580327344181-c1163234e5a0?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover;
-  background-position: center;
 }
 
-.details-img{
-  width: 20%;
-  height: 30%;
+.display-container {
+  background-color: #eef4ed;
+  height: 25%;
+  width: 25%;
 }
 
-
-.feature2-desc {
-  display: flex;
-  flex-direction: row;
-  justify-self: center;
-  align-self: center;
-}
-
-.details3 {
-  width: 100%;
-  height: 75%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  background-image: url('https://images.unsplash.com/photo-1542549237432-a176cb9d5e5e?q=80&w=2014&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-  background-size: cover;
-  background-position: center;
-}
-
-.details3-img{
-  width: 50%;
-  height: 50%;
-}
-
-.details3-button{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-
-footer {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.dialog-container {
+  width: 30%;
 }
 
 .footer-container {
-  width: 50%;
+  width: 90%;
+  height: 40%;
   display: flex;
-  justify-content: space-evenly;
+  align-items: center;
+  justify-content: flex-end;
+}
 
-
+.links-list {
+  list-style-type: none;
 }
