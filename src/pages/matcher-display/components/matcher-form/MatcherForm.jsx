@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
-import { Stack, TextField, Button, MenuItem } from '@mui/material'
+import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material'
+import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react'
 import './MatcherForm.scss'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -91,10 +92,10 @@ export const MatcherForm = () => {
 
   return (
     <Box className="matcher-form-container">
-      <h2>Project Hermes Matcher Form</h2>
-      <h3>Please reach out to us if you have any questions!</h3>
+      <h1>Project Hermes Matcher Form</h1>
+      <h4>Please reach out to us if you have any questions!</h4>
       <form onSubmit={submitHandler}>
-        <Stack spacing={2}>
+        <Stack spacing={6}>
           <TextField
             type="text"
             variant="outlined"
@@ -152,7 +153,7 @@ export const MatcherForm = () => {
             value={note}
             onChange={(e) => setNote(e.target.value)}
           />
-          <Button type="submit" variant="text">
+          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
             Submit
           </Button>
         </Stack>
