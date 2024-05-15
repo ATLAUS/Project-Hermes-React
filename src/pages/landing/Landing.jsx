@@ -3,64 +3,71 @@ import { LogoutButton } from '../../components'
 import { useAuth0 } from '@auth0/auth0-react'
 import './Landing.scss'
 
-
 export const Landing = () => {
+  const { isAuthenticated } = useAuth0()
 
-  const {isAuthenticated } = useAuth0()
-  
   return (
     <>
       <section className="landing-container">
-        <div className="header-container">
-          <div className="nav-container">
+        <div className="hero-container">
+          <nav className="nav-bar">
             <img
               className="logo"
-              src="https://img.freepik.com/free-vector/video-game-controls-neon-style-brick-wall_24908-58916.jpg?w=740&t=st=1714157158~exp=1714157758~hmac=ba3c7319cd3c474dac0ed7d93b143d78b6db633459121d5e450867937ae0d352"
-              alt="Controller"
+              src="https://i.imgur.com/pbsxqJi.png"
+              alt="Globe icon with branding."
             />
+            {/* TODO Style the buttons. */}
             {isAuthenticated ? <LogoutButton /> : <LoginButton />}
-          </div>
+          </nav>
           <div className="title-container">
-            <h1>Title</h1>
-            <p>Description</p>
+            <h1 className="title">
+              PROJECT
+              <br />
+              HERMES
+            </h1>
           </div>
         </div>
-        <div className="details">
-          <img
-            className="details-img"
-            src="https://img.freepik.com/free-vector/video-game-controls-neon-style-brick-wall_24908-58916.jpg?w=740&t=st=1714157158~exp=1714157758~hmac=ba3c7319cd3c474dac0ed7d93b143d78b6db633459121d5e450867937ae0d352"
-          ></img>
-          <div>
-            <h1>Feature Title</h1>
-            <p>Feature Description</p>
+        <div className="info-container">
+          <div className="display-container">
+            {/* Product snippet goes here. */}
+          </div>
+          <div className="dialog-container">
+            <h2>Go beyond just games.</h2>
+            <p>
+              Get matched with a liked minded individual to help rank up, beat
+              the boss, or make a new friend.
+            </p>
           </div>
         </div>
-        <div className="details">
-          <div>
-            <h1>Feature Title</h1>
-            <p className="feature-desc">Feature Description</p>
+        <div className="info-container">
+          <div className="dialog-container">
+            <h2>Communicate with ease.</h2>
+            <p>Once matched, communicate via our low-latency text chat.</p>
           </div>
-          <img
-            className="details-img"
-            src="https://img.freepik.com/free-vector/video-game-controls-neon-style-brick-wall_24908-58916.jpg?w=740&t=st=1714157158~exp=1714157758~hmac=ba3c7319cd3c474dac0ed7d93b143d78b6db633459121d5e450867937ae0d352"
-          ></img>
-        </div>
-        <div className="details3">
-          <img
-            className="details3-img"
-            src="https://img.freepik.com/free-vector/video-game-controls-neon-style-brick-wall_24908-58916.jpg?w=740&t=st=1714157158~exp=1714157758~hmac=ba3c7319cd3c474dac0ed7d93b143d78b6db633459121d5e450867937ae0d352"
-          ></img>
-          <div className="details3-button">
-            <p>Call To Action</p>
-            {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+          <div className="display-container">
+            {/* Product snippet goes here. */}
           </div>
         </div>
-        <footer>
-          <div className="footer-container">
-            <p>Github</p>
-            <p>Twitter</p>
-            <p>Instagram</p>
+        <div className="info-container">
+          <div className="display-container">
+            {/* Product snippet goes here. */}
           </div>
+          <div className="dialog-container">
+            <h2>Not the vibes?</h2>
+            <p>
+              No worries! Rematch with ease or leave the party to find a new
+              partner.
+            </p>
+          </div>
+        </div>
+
+        <footer className="footer-container">
+          <ul className="links-list">
+            <li>link</li>
+            <li>link</li>
+            <li>link</li>
+            <li>link</li>
+          </ul>
         </footer>
       </section>
     </>

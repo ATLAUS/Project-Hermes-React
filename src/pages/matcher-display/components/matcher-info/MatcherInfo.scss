@@ -4,31 +4,38 @@ $container-height: 100%;
 $container-width: 100%;
 $info-box-height: 32%;
 $info-box-margin: 5px;
-$inner-border-radius: 20px;
+$inner-border-radius: 15px;
 $outer-border-radius: 25px;
+$matcher-info-box-text-padding: 70px;
 
 .matcher-info-container {
-    background-color: theme.$primary-bg-color;
+    background-color: theme.$secondary-bg-color;
     height: $container-height;
     width: $container-width;
-    border: 5px solid theme.$secondary-bg-color;
     border-radius: $outer-border-radius;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    padding: 15px;
 }
 
 .matcher-info-box {
     height: $info-box-height;
     border: 1px;
     border-radius: $inner-border-radius;
-    background-color: theme.$secondary-bg-color;
+    background-color: theme.$tertiary-bg-color;
     margin: $info-box-margin;
+    padding-left: $matcher-info-box-text-padding;
+    padding-right: $matcher-info-box-text-padding;
     display: flex;
-    justify-content: center;
+    align-items: center;
+}
+
+.matcher-info-text {
+    display: flex;
     align-items: center;
 }
 
 .text-specifications {
-    color: gray;
+    color: lightgray;
 }

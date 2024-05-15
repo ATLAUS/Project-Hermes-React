@@ -1,9 +1,19 @@
 @use "../../../../theme";
 
+$matcher-form-container-hw: 100%;
+$matcher-form-containment-padding: 100px;
+
 .matcher-form-container {
     background-color: theme.$secondary-bg-color;
-    height: 100%;
-    width: 100%;
+    height: $matcher-form-container-hw;
+    width: $matcher-form-container-hw;
     border: 1px solid red;
     border-radius: 5px;
+}
+
+.matcher-form-containment {
+    padding-left: $matcher-form-containment-padding;
+    padding-right: $matcher-form-containment-padding;
+    display: flex;
+    align-items: start;
 }
