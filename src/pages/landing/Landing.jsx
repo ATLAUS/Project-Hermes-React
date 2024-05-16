@@ -16,20 +16,31 @@ export const Landing = () => {
               src="https://i.imgur.com/pbsxqJi.png"
               alt="Globe icon with branding."
             />
-            {/* TODO Style the buttons. */}
             {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </nav>
           <div className="title-container">
+            <span className="spacer"></span>
             <h1 className="title">
               PROJECT
               <br />
               HERMES
             </h1>
+            <div className="description-container">
+              <p>
+                Find your duo with Project Hermes. Whether you&apos;re looking
+                for someone to help complete a quest line or run some ranked,
+                Project Hermes has you covered.
+              </p>
+            </div>
           </div>
         </div>
         <div className="info-container">
           <div className="display-container">
-            {/* Product snippet goes here. */}
+            <img
+              src="https://i.imgur.com/Q3RZ6nn.png"
+              alt="Icon illustrating connected users."
+              className="snippet-icon"
+            />
           </div>
           <div className="dialog-container">
             <h2>Go beyond just games.</h2>
@@ -45,12 +56,20 @@ export const Landing = () => {
             <p>Once matched, communicate via our low-latency text chat.</p>
           </div>
           <div className="display-container">
-            {/* Product snippet goes here. */}
+            <img
+              src="https://i.imgur.com/EqW7iXj.png"
+              alt="Messenger icon."
+              className="snippet-icon"
+            />
           </div>
         </div>
         <div className="info-container">
           <div className="display-container">
-            {/* Product snippet goes here. */}
+            <img
+              src="https://i.imgur.com/GbnsvG5.png"
+              alt="Icon illustrating rematch functionality."
+              className="snippet-icon"
+            />
           </div>
           <div className="dialog-container">
             <h2>Not the vibes?</h2>
