@@ -8,17 +8,26 @@
   }
 }
 
-// TODO Add the background gradient img
-// and the ::after pseudo selector for the transparency gradient.
 .hero-container {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 85%;
+  height: 95%;
   width: 100%;
+  background-image: url('https://i.imgur.com/hxevfxR.jpg');
   background-position: center;
   background-size: cover;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: linear-gradient(180deg,rgba(0,0,0,.1) 50%, rgba(18,18,18,1) 95%);
+  }
 }
 
 .nav-bar {
