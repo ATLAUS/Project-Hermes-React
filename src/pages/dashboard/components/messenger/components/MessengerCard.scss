@@ -47,8 +47,32 @@
 
 .input {
   width: 90%;
+  border: none;
+  padding-left: 10px;
+  background-color: theme.$primary-accent-color;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .send-btn {
-  width: 10%
+  width: 10%;
+  background-color: theme.$primary-accent-color;
+  color: theme.$accent-color-g-four;
+  border: none;
+  transition: .3s ease-in-out;
+
+  & > .send-icon {
+      transition: .3s ease-in-out;
+  }
+
+  &:hover {
+    background-color: theme.$accent-color-g-four;
+  }
+
+  &:hover > .send-icon {
+    color: theme.$primary-accent-color;
+  }
 }
+

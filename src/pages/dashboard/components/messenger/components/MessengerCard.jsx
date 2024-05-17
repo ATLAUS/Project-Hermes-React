@@ -69,7 +69,7 @@ export const MessengerCard = () => {
           onChange={handleChange}
         />
         <button className="send-btn" type="submit">
-          <SendIcon />
+          <SendIcon className="send-icon" />
         </button>
       </form>
     </div>
