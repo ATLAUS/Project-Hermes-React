@@ -147,9 +147,10 @@ export const PartyInfo = () => {
           </Stack>
         </Stack>
       ) : (
-        <>
-          <Button onClick={()=>navigate('/matcher-display')}>Create a Matcher</Button>
-        </>
+          <Stack spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+            <Typography>Bummer! You're not in a party!</Typography>
+            <Button onClick={()=>navigate('/matcher-display')}>Create a Matcher</Button>
+          </Stack>
       )}
     </Box>
   )
