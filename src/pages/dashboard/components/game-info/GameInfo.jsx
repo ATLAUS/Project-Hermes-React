@@ -40,17 +40,18 @@ export const GameInfo = () => {
     <Box className="game-info-container">
       {gameData ? (
         <>
-          <Typography>{gameName && gameName}</Typography>
           <CardMedia
-            sx={{ height: 150 }}
+            sx={{ height: 150, borderRadius: '5px 5px 0px 0px' }}
             image={gameData?.background_image}
           ></CardMedia>
-          <Typography>
-            {gameData.website && `Website: ${gameData.website}`}
-          </Typography>
-          <Typography>
-            {gameData.released && `Release Date: ${gameData.released}`}
-          </Typography>
+          <div className="game-data-container">
+            <Typography variant='h4' component='h1'>{gameName && gameName}</Typography>
+            {gameData.website && <p><a href={gameData.website} target='_blank'>Website</a></p>}
+            
+            <Typography>
+              {gameData.released && `Release Date: ${gameData.released}`}
+            </Typography>
+          </div>
         </>
       ) : (
         <></>

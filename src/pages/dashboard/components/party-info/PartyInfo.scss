@@ -3,12 +3,13 @@
 .party-info-container {
     height: 50%; 
     width: 100%; 
-    background-color: theme.$secondary-bg-color;
+    background-color: rgba(88, 87, 86, 0.5);
     backdrop-filter: blur(xpx);
     border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    backdrop-filter: blur(50px);
 }
 
 .no-party-img {
