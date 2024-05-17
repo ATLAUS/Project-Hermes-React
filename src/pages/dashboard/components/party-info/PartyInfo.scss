@@ -3,17 +3,17 @@
 .party-info-container {
     height: 50%; 
     width: 100%; 
-    background-color: rgba(88, 87, 86, 0.5);
+    background-color: rgba(88, 87, 86, 0.2);
     backdrop-filter: blur(xpx);
-    border-radius: 5px;
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(50px);
+    backdrop-filter: blur(100px);
 }
 
 .no-party-img {
     height: 75%;
     width: 75%;
-    border-radius: 5px;
+    border-radius: 15px;
 }

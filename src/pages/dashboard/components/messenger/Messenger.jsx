@@ -72,7 +72,7 @@ export const Messenger = () => {
 
   return (
     <>
-      <div className="messenger-container">
+      <div className={activeParty ? "messenger-container active" : "messenger-container inactive"} >
         {activeParty && <MessengerCard />}
       </div>
     </>
