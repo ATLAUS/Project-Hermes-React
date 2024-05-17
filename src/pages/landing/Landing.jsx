@@ -9,7 +9,7 @@ export const Landing = () => {
   return (
     <>
       <section className="landing-container">
-        <div className="hero-container">
+        <header className="hero-container">
           <nav className="nav-bar">
             <img
               className="logo"
@@ -20,24 +20,26 @@ export const Landing = () => {
           </nav>
           <div className="title-container">
             <span className="spacer"></span>
-            <h1 className="title">
-              PROJECT
-              <br />
-              HERMES
-            </h1>
+            <div className="title-tag-container">
+              <h1 className="title">
+                PROJECT
+                <br />
+                HERMES
+              </h1>
+              <h2 className="tag">- FIND YOUR DUO -</h2>
+            </div>
             <div className="description-container">
               <p>
-                Find your duo with Project Hermes. Whether you&apos;re looking
-                for someone to help complete a quest line or run some ranked,
-                Project Hermes has you covered.
+                Looking to find someone to help finish a quest? Wanna run some
+                ranked? Project Hermes has you covered.
               </p>
             </div>
           </div>
-        </div>
+        </header>
         <div className="info-container">
           <div className="display-container">
             <img
-              src="https://i.imgur.com/Q3RZ6nn.png"
+              src="https://i.imgur.com/dQ2Ep9s.png"
               alt="Icon illustrating connected users."
               className="snippet-icon"
             />
@@ -66,7 +68,7 @@ export const Landing = () => {
         <div className="info-container">
           <div className="display-container">
             <img
-              src="https://i.imgur.com/GbnsvG5.png"
+              src="https://i.imgur.com/l9wtDpo.png"
               alt="Icon illustrating rematch functionality."
               className="snippet-icon"
             />
@@ -81,12 +83,31 @@ export const Landing = () => {
         </div>
 
         <footer className="footer-container">
-          <ul className="links-list">
-            <li>link</li>
-            <li>link</li>
-            <li>link</li>
-            <li>link</li>
-          </ul>
+          <div className="footer">
+            <div className="list-container">
+              <div className="accents">
+                <span className="red flair"></span>
+                <span className="yellow flair"></span>
+                <span className="green flair"></span>
+                <span className="blue flair"></span>
+              </div>
+              <ul className="links-list">
+                <li>ATLAUS</li>
+                <li>AARON</li>
+                <li>AXEL</li>
+                <li>DANIEL</li>
+                <li>SENAI</li>
+              </ul>
+            </div>
+            <div className="footer-logo-container">
+              <img
+                className="logo"
+                src="https://i.imgur.com/pbsxqJi.png"
+                alt="Globe icon with branding."
+              />
+              <p>&copy; 2024 ATLAUS</p>
+            </div>
+          </div>
         </footer>
       </section>
     </>
