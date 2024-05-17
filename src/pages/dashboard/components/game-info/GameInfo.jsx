@@ -41,7 +41,7 @@ export const GameInfo = () => {
       {gameData ? (
         <>
           <CardMedia
-            sx={{ height: 150, borderRadius: '5px 5px 0px 0px' }}
+            sx={{ height: 150, borderRadius: '15px 15px 0px 0px' }}
             image={gameData?.background_image}
           ></CardMedia>
           <div className="game-data-container">
