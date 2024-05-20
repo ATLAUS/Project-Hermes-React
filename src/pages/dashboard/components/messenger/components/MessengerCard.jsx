@@ -1,5 +1,5 @@
 import { socket } from '../../../../../socket'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import './MessengerCard.scss'
 import SendIcon from '@mui/icons-material/Send'
 import { UserContext } from '../../../../../App'
@@ -8,6 +8,8 @@ export const MessengerCard = () => {
   const { userInfo, activeParty, messages, setMessages } =
     useContext(UserContext)
   const [message, setMessage] = useState('')
+  const messageContainerRef = useRef(null)
+
   const partyId = activeParty?.id
   const userId = userInfo?.id
   const chatId = activeParty?.Chat.id
@@ -42,11 +44,16 @@ export const MessengerCard = () => {
     setMessages(messageArray)
   })
 
-  useEffect(() => {}, [messages])
+  useEffect(() => {
+    const element = messageContainerRef.current
+    if (element) {
+      element.scrollTop = element.scrollHeight
+    }
+  }, [messages])
 
   return (
     <div className="messenger-card">
-      <div className="message-display">
+      <div ref={messageContainerRef} className="message-display">
         {messages &&
           messages.map((message) => (
             <div
