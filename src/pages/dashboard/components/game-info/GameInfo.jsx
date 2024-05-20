@@ -1,10 +1,10 @@
-import { Box, Card, CardMedia, Typography } from '@mui/material'
+import { Box, Button, Card, CardMedia, Stack, Typography } from '@mui/material'
 import './GameInfo.scss'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../../../App'
 
 export const GameInfo = () => {
-  const { activeParty, gameData, setGameData } = useContext(UserContext)
+  const { activeParty, gameData, setGameData, isMatching, setIsMatching } = useContext(UserContext)
 
   const gameName = activeParty?.gameName
 
@@ -32,13 +32,23 @@ export const GameInfo = () => {
     }
   }
 
+  const fetchSessionStorage = () => {
+    const data = sessionStorage.getItem('isMatching')
+    data == "true"  ? setIsMatching(true) : setIsMatching(false)
+    console.log(isMatching)
+  }
+
   useEffect(() => {
     fetchGameData()
+
+    fetchSessionStorage()
+    
+
   }, [gameName])
 
   return (
     <Box className="game-info-container">
-      {gameData ? (
+      {gameData && !isMatching ? (
         <>
           <CardMedia
             sx={{ height: 150, borderRadius: '15px 15px 0px 0px' }}
@@ -56,6 +66,14 @@ export const GameInfo = () => {
       ) : (
         <></>
       )}
+
+      {isMatching && (
+          <Stack>
+            <Typography>Searching for a party. Please refresh the page!</Typography>
+            <Button onClick={()=>window.location.reload()}>Refresh</Button>
+          </Stack>
+      )
+      }
     </Box>
   )
 }
