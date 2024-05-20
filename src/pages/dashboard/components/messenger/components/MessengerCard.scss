@@ -15,6 +15,7 @@
   flex-direction: column;
   gap: 7px;
   overflow-y: scroll;
+  padding-bottom: 7px;
 
   &::-webkit-scrollbar {
     display: none;
@@ -44,6 +45,7 @@
   height: 5%;
   width: 97%;
   padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .input {
