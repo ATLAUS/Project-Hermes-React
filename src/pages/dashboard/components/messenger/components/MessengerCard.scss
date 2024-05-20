@@ -42,14 +42,17 @@
 .message-input {
   display: flex;
   height: 5%;
-  width: 100%;
+  width: 97%;
+  padding-bottom: 15px;
 }
 
 .input {
-  width: 90%;
+  width: 95%;
   border: none;
   padding-left: 10px;
   background-color: theme.$primary-accent-color;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 
   &:focus {
     outline: none;
@@ -57,10 +60,13 @@
 }
 
 .send-btn {
-  width: 10%;
+  width: 5%;
   background-color: theme.$primary-accent-color;
   color: theme.$accent-color-g-four;
   border: none;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-left: 5px;
   transition: .3s ease-in-out;
 
   & > .send-icon {
