@@ -1,11 +1,12 @@
 @use "../../theme";
 
 .nav-rail {
-    height: 100%;
-    width: 50%;
+    height: 75%;
+    width: 5%;
     margin-top: 10px;
     display: flex;
     justify-content: center;
+    z-index: 5;
 }
 
 .nav-icons{

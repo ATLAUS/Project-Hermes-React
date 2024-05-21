@@ -13,7 +13,7 @@ export const MatcherInfo = () => {
                         <SportsEsportsOutlinedIcon sx={{fontSize: 48}} />
                         <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Choose a Game</Typography>
                     </Stack>
-                    <Typography className='text-specifications'>Select a game to play from our list of ... pre-determined titles.</Typography>
+                    <Typography className='text-specifications'>Select a game to play from our list of 15 pre-determined titles.</Typography>
                 </Stack>
             </Box>
             <Box className = 'matcher-info-box'>
@@ -31,7 +31,7 @@ export const MatcherInfo = () => {
                         <NoteAddOutlinedIcon sx={{fontSize: 48}} />
                         <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Add a Note</Typography>
                     </Stack>
-                    <Typography className='text-specifications'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Typography>
+                    <Typography className='text-specifications'>Let your partner know more about your goals for the session.</Typography>
                 </Stack>
             </Box>
         </Box>
