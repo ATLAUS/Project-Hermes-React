@@ -75,7 +75,7 @@ export const MessengerCard = () => {
           value={message}
           onChange={handleChange}
         />
-        <button className="send-btn" type="submit">
+        <button className="send-btn" type="submit" aria-label="submit">
           <SendIcon className="send-icon" />
         </button>
       </form>
