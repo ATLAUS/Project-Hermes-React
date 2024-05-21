@@ -1,0 +1,24 @@
+@use "../../theme";
+
+.nav-rail {
+    height: 100%;
+    width: 50%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-icons{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(88, 87, 86, 0.4);
+    border-radius: 25px;
+
+    &:hover {
+        background-color: theme.$accent-color-g-four;
+        border-radius: 15px;
+    }
+}

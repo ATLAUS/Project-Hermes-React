@@ -1,5 +1,5 @@
-import { Box } from '@mui/material'
-import { Stack, TextField, Button, MenuItem, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
+import { Stack, TextField, Button, MenuItem} from '@mui/material'
 import SendIcon from '@mui/icons-material/Send';
 import { useState, useContext } from 'react'
 import './MatcherForm.scss'
@@ -31,6 +31,22 @@ const gamenames = [
   'GTA V',
   "Baldur's Gate 3"
 ]
+
+const classes = {
+    textField: {
+        "& .MuiOutlinedInput-root": {
+            "fieldset.MuiOutlinedInput-notchedOutline" : {
+                borderColor: "white"
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline" : {
+                borderColor: "#4285f4"
+            },
+            "&:placeholder .MuiOutlinedInput-notchedOutline" : {
+                color: "white"
+            }
+        }
+    }
+}
 
 export const MatcherForm = () => {
   const navigate = useNavigate()
@@ -100,72 +116,83 @@ export const MatcherForm = () => {
 
   return (
     <Box className="matcher-form-container">
-      <h1>Project Hermes Matcher Form</h1>
-      <h4>Please reach out to us if you have any questions!</h4>
-      <form onSubmit={submitHandler}>
-        <Stack spacing={6}>
-          <TextField
-            type="text"
-            variant="outlined"
-            label="Game Name"
-            InputProps={{ style: { color: 'white' } }}
-            select
-            fullWidth
-            required
-            focused
-            value={gameName}
-            onChange={(e) => setGameName(e.target.value)}
-          >
-            {gamenames.map((gamename) => (
-              <MenuItem key={gamename} value={gamename}>
-                {gamename}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            type="text"
-            variant="outlined"
-            label="Platform"
-            InputProps={{ style: { color: 'white' } }}
-            select
-            fullWidth
-            required
-            focused
-            value={platform}
-            onChange={(e) => setPlatform(e.target.value)}
-          >
-            {platforms.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-          <TextField
-            type="text"
-            variant="outlined"
-            label="Objective"
-            InputProps={{ style: { color: 'white' } }}
-            fullWidth
-            focused
-            value={objective}
-            onChange={(e) => setObjective(e.target.value)}
-          />
-          <TextField
-            type="text"
-            variant="outlined"
-            label="Note"
-            InputProps={{ style: { color: 'white' } }}
-            multiline
-            fullWidth
-            focused
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-          />
-          <Button type="submit" variant="contained" endIcon={<SendIcon />}>
-            Submit
-          </Button>
-        </Stack>
-      </form>
+      <Box className="matcher-form-inner-container">
+        <div className='form-components'>
+          <Typography fontSize={24}>MATCHER REQUEST FORM</Typography>
+        </div>
+        <form className="form-components" onSubmit={submitHandler}>
+          <Stack spacing={6}>
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Game Name"
+              InputProps={{ style: { color: 'white' } }}
+              InputLabelProps={{ style: { color: 'white' }}}
+              select
+              required
+              sx={classes.textField}
+              //className='animated-border'
+              value={gameName}
+              onChange={(e) => setGameName(e.target.value)}
+            >
+              {gamenames.map((gamename) => (
+                <MenuItem key={gamename} value={gamename}>
+                  {gamename}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Platform"
+              InputProps={{ style: { color: 'white'} }}
+              InputLabelProps={{ style: { color: 'white' }}}
+              select
+              required
+              sx={classes.textField}
+              value={platform}
+              onChange={(e) => setPlatform(e.target.value)}
+            >
+              {platforms.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Objective"
+              InputProps={{ style: { color: 'white' } }}
+              InputLabelProps={{ style: { color: 'white' }}}
+              autoComplete='off'
+              sx={classes.textField}
+              value={objective}
+              onChange={(e) => setObjective(e.target.value)}
+            />
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Note"
+              InputProps={{ style: { color: 'white' } }}
+              InputLabelProps={{ style: { color: 'white' }}}
+              multiline
+              rows={4}
+              sx={classes.textField}
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+            />
+            <Stack direction='row' spacing={2}>
+              <Button variant="contained" onClick={()=>navigate('/dashboard')}>
+                Cancel
+              </Button>
+              <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+                Submit
+              </Button>
+            </Stack>
+          </Stack>
+        </form>
+      </Box>
     </Box>
   )
 }

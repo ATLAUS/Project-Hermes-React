@@ -1,4 +1,4 @@
-import { Box, Button, Typography, Stack } from '@mui/material'
+import { Box, Button, Typography, Stack, Tooltip } from '@mui/material'
 import LogoutIcon from '@mui/icons-material/Logout'
 import LoopIcon from '@mui/icons-material/Loop'
 import PersonIcon from '@mui/icons-material/Person'
@@ -138,12 +138,16 @@ export const PartyInfo = () => {
           <Typography>{matchedUser?.userName}</Typography>
           <PersonIcon fontSize="large" />
           <Stack direction="row" spacing={7}>
+            <Tooltip title="Leave" arrow disableInteractive>
             <Button onClick={leaveParty}>
               <LogoutIcon />
             </Button>
+            </Tooltip>
+            <Tooltip title="Rematch" arrow disableInteractive>
             <Button onClick={rematchParty}>
               <LoopIcon />
             </Button>
+            </Tooltip>
           </Stack>
         </Stack>
       ) : (
