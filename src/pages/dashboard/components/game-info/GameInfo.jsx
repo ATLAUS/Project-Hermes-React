@@ -35,7 +35,6 @@ export const GameInfo = () => {
   const fetchSessionStorage = () => {
     const data = sessionStorage.getItem('isMatching')
     data == "true"  ? setIsMatching(true) : setIsMatching(false)
-    console.log(isMatching)
   }
 
   useEffect(() => {
