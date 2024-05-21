@@ -4,9 +4,12 @@ import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import AddIcon from '@mui/icons-material/Add';
 import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from 'react-router';
+import { useContext } from 'react';
+import { UserContext } from '../../App';
 
 export const NavRail = () => {
     const navigate = useNavigate()
+    const {activeParty} = useContext(UserContext)
     
     return (
         <Box className='nav-rail'>
@@ -21,11 +24,12 @@ export const NavRail = () => {
                         <SpaceDashboardIcon onClick={() => navigate('/dashboard')}/>
                     </Box>
                 </Tooltip>
-                <Tooltip title="Create a Matcher" placement='right' arrow disableInteractive>
+                { !activeParty && (<Tooltip title="Create a Matcher" placement='right' arrow disableInteractive>
                     <Box className='nav-icons'>
                         <AddIcon onClick={() => navigate('/matcher-display')}/>
                     </Box>
-                </Tooltip>
+                </Tooltip>)
+                }
             </Stack>
         </Box>
     )
