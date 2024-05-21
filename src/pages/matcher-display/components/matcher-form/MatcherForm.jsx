@@ -1,11 +1,10 @@
 import { Box, Typography } from '@mui/material'
 import { Stack, TextField, Button, MenuItem} from '@mui/material'
 import SendIcon from '@mui/icons-material/Send';
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import './MatcherForm.scss'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../../../../App';
 
 const platforms = [
   { value: 'PS5', label: 'PS5' },
@@ -52,7 +51,6 @@ export const MatcherForm = () => {
   const navigate = useNavigate()
   const { user, getAccessTokenSilently } = useAuth0()
 
-  const {setIsMatching} = useContext(UserContext)
   const [gameName, setGameName] = useState('')
   const [platform, setPlatform] = useState('')
   const [objective, setObjective] = useState('')

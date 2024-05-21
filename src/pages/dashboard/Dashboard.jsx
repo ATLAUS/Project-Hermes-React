@@ -7,6 +7,7 @@ import { PartyInfo } from './components/party-info/PartyInfo'
 import { useEffect, useContext } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
 import { UserContext } from '../../App'
+import { NavRail } from '../../components/nav-rail/NavRail'
 
 export const Dashboard = () => {
   const { user, getAccessTokenSilently } = useAuth0()
@@ -58,23 +59,26 @@ export const Dashboard = () => {
   }, [])
 
   return (
-    <Grid
-      container
-      columnSpacing={8}
-      className="dashboard-container"
-      sx={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}
-    >
-      <Grid item xs={3} sx={{ height: '80%', zIndex: '2' }}>
-        <Stack spacing={3} className="dashboard-gp-container" sx={{height: '100%'}}>
-            <GameInfo />
-            <PartyInfo />
-        </Stack>
+    <>
+      <NavRail/>
+      <Grid
+        container
+        columnSpacing={8}
+        className="dashboard-container"
+        sx={{ height: '100%', width: '95%', justifyContent: 'center', alignItems: 'center' }}
+      >
+        <Grid item xs={3} sx={{ height: '80%', zIndex: '2' }}>
+          <Stack spacing={3} className="dashboard-gp-container" sx={{height: '100%'}}>
+              <GameInfo />
+              <PartyInfo />
+          </Stack>
+        </Grid>
+        <Grid item xs={8} sx={{ height: '80%', zIndex: '2' }}>
+          <Box className="dashboard-messenger-container" sx={{ height: '100%' }}>
+            <Messenger />
+          </Box>
+        </Grid>
       </Grid>
-      <Grid item xs={6} sx={{ height: '80%', zIndex: '2' }}>
-        <Box className="dashboard-messenger-container" sx={{ height: '100%' }}>
-          <Messenger />
-        </Box>
-      </Grid>
-    </Grid>
+    </>
   )
 }
