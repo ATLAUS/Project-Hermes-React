@@ -7,26 +7,58 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: theme.$primary-bg-color;
+    // background-color: theme.$primary-bg-color;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: url('https://i.imgur.com/hxevfxR.jpg');
+        background-position: top right;
+        transform: scaleY(-1)
+    }
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: linear-gradient(360deg, rgba(0, 0, 0, .3) 20%, rgba(18, 18, 18, 1) 98%);
+    }
+}
+
+.message-bg-container {
+    height: 62%;
+    width: 62%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(88, 87, 86, 0.4);
+    backdrop-filter: blur(100px);
+    border-radius: 25px;
+    padding: 20px;
+    z-index: 1;
 }
 
 .message-container {
-    width: 60%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: theme.$accent-color-g-two;
+    border-radius: 15px;
+    background-color: rgba(88, 87, 86, 0.2);
+    backdrop-filter: blur(100px);
 }
 
 .unauthorized-title {
     font-size: 100px;
-}
-
-.divider {
-    color: black;
-    border: red 5px;
 }
 
 .unauthorized-message {
