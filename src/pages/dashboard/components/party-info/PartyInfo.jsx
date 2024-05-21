@@ -136,17 +136,19 @@ export const PartyInfo = () => {
           }}
         >
           <Typography>{matchedUser?.userName}</Typography>
-          <PersonIcon fontSize="large" />
+          <div className='circle'>
+            <PersonIcon fontSize="large" sx={{}}/>
+          </div>
           <Stack direction="row" spacing={7}>
-            <Tooltip title="Leave" arrow disableInteractive>
-            <Button onClick={leaveParty}>
-              <LogoutIcon />
-            </Button>
-            </Tooltip>
+            {/* <Tooltip title="Leave" arrow disableInteractive> */}
+              <button className="bttn" onClick={leaveParty} style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "40%"}}>
+                Leave
+              </button>
+            {/* </Tooltip> */}
             <Tooltip title="Rematch" arrow disableInteractive>
-            <Button onClick={rematchParty}>
-              <LoopIcon />
-            </Button>
+            <button  className="bttn" onClick={rematchParty} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+              Rematch
+            </button>
             </Tooltip>
           </Stack>
         </Stack>

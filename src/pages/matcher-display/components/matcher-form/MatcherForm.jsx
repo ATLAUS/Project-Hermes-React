@@ -181,12 +181,12 @@ export const MatcherForm = () => {
               onChange={(e) => setNote(e.target.value)}
             />
             <Stack direction='row' spacing={2}>
-              <Button variant="contained" onClick={()=>navigate('/dashboard')}>
+              <button className='bttn' onClick={()=>navigate('/dashboard')}>
                 Cancel
-              </Button>
-              <Button type="submit" variant="contained" endIcon={<SendIcon />}>
+              </button>
+              <button type="submit" className="bttn" endIcon={<SendIcon />}>
                 Submit
-              </Button>
+              </button>
             </Stack>
           </Stack>
         </form>
