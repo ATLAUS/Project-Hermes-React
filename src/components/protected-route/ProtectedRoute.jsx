@@ -4,5 +4,5 @@ import { Navigate } from 'react-router-dom'
 export const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth0()
 
-  return isAuthenticated ? children : <Navigate to="/login" replace />
+  return isAuthenticated ? children : <Navigate to="/401" replace />
 }
