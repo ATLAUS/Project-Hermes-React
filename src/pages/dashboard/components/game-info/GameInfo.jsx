@@ -68,13 +68,11 @@ export const GameInfo = () => {
       )}
 
       {isMatching && (
-        <>
           <Stack>
             <Typography>Searching for a party. Please refresh the page!</Typography>
             <Button onClick={()=>window.location.reload()}>Refresh</Button>
           </Stack>
-        </>
-      ) 
+      )
       }
     </Box>
   )
