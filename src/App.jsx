@@ -14,6 +14,7 @@ const App = () => {
   const [activeParty, setActiveParty] = useState(null)
   const [messages, setMessages] = useState(null)
   const [gameData, setGameData] = useState({})
+  const [isMatching, setIsMatching] = useState(false)
 
   const { isLoading } = useAuth0()
 
@@ -38,14 +39,13 @@ const App = () => {
           messages,
           setMessages,
           gameData,
-          setGameData
+          setGameData,
+          isMatching,
+          setIsMatching
         }}
       >
         <Routes>
           <Route path="/" element={<pages.Landing />}></Route>
-          {/* TODO If login page is not completed replace with 404 page
-          OR condense the two. */}
-          <Route path="/login" element={<pages.LoginPage />}></Route>
           <Route path="/401" element={<pages.UnauthorizedPage />}></Route>
           <Route
             path="/dashboard"

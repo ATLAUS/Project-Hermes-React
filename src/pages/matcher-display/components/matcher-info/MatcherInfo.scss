@@ -9,7 +9,8 @@ $outer-border-radius: 25px;
 $matcher-info-box-text-padding: 70px;
 
 .matcher-info-container {
-    background-color: theme.$secondary-bg-color;
+    background-color: rgba(88, 87, 86, 0.4);
+    backdrop-filter: blur(100px);
     height: $container-height;
     width: $container-width;
     border-radius: $outer-border-radius;
@@ -23,12 +24,13 @@ $matcher-info-box-text-padding: 70px;
     height: $info-box-height;
     border: 1px;
     border-radius: $inner-border-radius;
-    background-color: theme.$tertiary-bg-color;
     margin: $info-box-margin;
     padding-left: $matcher-info-box-text-padding;
     padding-right: $matcher-info-box-text-padding;
     display: flex;
     align-items: center;
+    background-color: rgba(88, 87, 86, 0.2);
+    backdrop-filter: blur(150px);
 }
 
 .matcher-info-text {

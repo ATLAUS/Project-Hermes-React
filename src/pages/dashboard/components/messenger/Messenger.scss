@@ -1,8 +1,17 @@
 @use '../../../../theme';
 
 .messenger-container {
-    background-color: theme.$secondary-bg-color;
-    border-radius: 5px;
+    border-radius: 15px;
     height: 100%;
     width: 100%;
+}
+
+.active {
+    background-color: rgba(88, 87, 86, 0.4);
+    backdrop-filter: blur(150px);
+}
+
+.inactive {
+        background-color: rgba(88, 87, 86, 0.2);
+        backdrop-filter: blur(100px);
 }

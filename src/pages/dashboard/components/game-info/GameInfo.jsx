@@ -1,10 +1,10 @@
-import { Box, Card, CardMedia, Typography } from '@mui/material'
+import { Box, Button, Card, CardMedia, Stack, Typography } from '@mui/material'
 import './GameInfo.scss'
 import { useContext, useEffect, useState } from 'react'
 import { UserContext } from '../../../../App'
 
 export const GameInfo = () => {
-  const { activeParty, gameData, setGameData } = useContext(UserContext)
+  const { activeParty, gameData, setGameData, isMatching, setIsMatching } = useContext(UserContext)
 
   const gameName = activeParty?.gameName
 
@@ -32,29 +32,47 @@ export const GameInfo = () => {
     }
   }
 
+  const fetchSessionStorage = () => {
+    const data = sessionStorage.getItem('isMatching')
+    data == "true"  ? setIsMatching(true) : setIsMatching(false)
+  }
+
   useEffect(() => {
     fetchGameData()
+
+    fetchSessionStorage()
+    
+
   }, [gameName])
 
   return (
     <Box className="game-info-container">
-      {gameData ? (
+      {gameData && !isMatching ? (
         <>
-          <Typography>{gameName && gameName}</Typography>
           <CardMedia
-            sx={{ height: 150 }}
+            sx={{ height: 150, borderRadius: '15px 15px 0px 0px' }}
             image={gameData?.background_image}
           ></CardMedia>
-          <Typography>
-            {gameData.website && `Website: ${gameData.website}`}
-          </Typography>
-          <Typography>
-            {gameData.released && `Release Date: ${gameData.released}`}
-          </Typography>
+          <div className="game-data-container">
+            <Typography variant='h4' component='h1'>{gameName && gameName}</Typography>
+            {gameData.website && <p><a href={gameData.website} target='_blank'>Website</a></p>}
+            
+            <Typography>
+              {gameData.released && `Release Date: ${gameData.released}`}
+            </Typography>
+          </div>
         </>
       ) : (
         <></>
       )}
+
+      {isMatching && (
+          <Stack>
+            <Typography>Searching for a party. Please refresh the page!</Typography>
+            <Button onClick={()=>window.location.reload()}>Refresh</Button>
+          </Stack>
+      )
+      }
     </Box>
   )
 }

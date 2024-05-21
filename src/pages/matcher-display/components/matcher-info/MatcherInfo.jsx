@@ -10,16 +10,16 @@ export const MatcherInfo = () => {
             <Box className = 'matcher-info-box'>
                 <Stack direction="column" spacing={2}>
                     <Stack className = 'matcher-info-text' direction = "row" spacing = {2}>
-                        <SportsEsportsOutlinedIcon sx={{fontSize: 48, color: '#e94235'}} />
+                        <SportsEsportsOutlinedIcon sx={{fontSize: 48}} />
                         <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Choose a Game</Typography>
                     </Stack>
-                    <Typography className='text-specifications'>Select a game to play from our list of ... pre-determined titles.</Typography>
+                    <Typography className='text-specifications'>Select a game to play from our list of 15 pre-determined titles.</Typography>
                 </Stack>
             </Box>
             <Box className = 'matcher-info-box'>
                  <Stack direction="column" spacing={2}>
                     <Stack className='matcher-info-text' direction="row" spacing = {2}>
-                        <FlagCircleOutlinedIcon sx={{fontSize: 48, color: '#34a853'}}/>
+                        <FlagCircleOutlinedIcon sx={{fontSize: 48}}/>
                         <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Select an Objective</Typography>
                     </Stack>
                     <Typography className='text-specifications'>Set a clear and concise objective that gives your teammate direction regarding what you expect to accomplish with them in game. </Typography>
@@ -28,10 +28,10 @@ export const MatcherInfo = () => {
             <Box className = 'matcher-info-box'>
                  <Stack direction="column" spacing={2}>
                     <Stack className='matcher-info-text' direction="row" spacing = {2}>
-                        <NoteAddOutlinedIcon sx={{fontSize: 48, color: '#fabb22'}} />
+                        <NoteAddOutlinedIcon sx={{fontSize: 48}} />
                         <Typography sx={{fontSize: 24, fontWeight: 'bold'}}>Add a Note</Typography>
                     </Stack>
-                    <Typography className='text-specifications'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Typography>
+                    <Typography className='text-specifications'>Let your partner know more about your goals for the session.</Typography>
                 </Stack>
             </Box>
         </Box>

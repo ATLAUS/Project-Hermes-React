@@ -8,8 +8,8 @@ import LockPersonIcon from '@mui/icons-material/LockPerson';import { WidthNormal
 export const UnauthorizedPage = () => {
   return (
     <>
-      <main>
         <div className='unauthorized-container'>
+          <div className='message-bg-container'>
           <div className='message-container'>
             <h1 className='unauthorized-title'>401</h1>
             <LockPersonIcon className='401-icon' sx={{ fontSize: 80}}/>
@@ -19,9 +19,8 @@ export const UnauthorizedPage = () => {
             <p className='unauthorized-login'>Please log in</p>
             <LoginButton />
           </div>
+          </div>
         </div>
-        
-      </main>
     </>
   )
 }
