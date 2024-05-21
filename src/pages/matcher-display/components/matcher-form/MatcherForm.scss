@@ -4,16 +4,53 @@ $matcher-form-container-hw: 100%;
 $matcher-form-containment-padding: 100px;
 
 .matcher-form-container {
-    background-color: theme.$secondary-bg-color;
+    background-color: rgba(88, 87, 86, 0.4);
+    backdrop-filter: blur(100px);
+    border-radius: 25px;
     height: $matcher-form-container-hw;
     width: $matcher-form-container-hw;
-    border: 1px solid red;
-    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
 }
 
-.matcher-form-containment {
-    padding-left: $matcher-form-containment-padding;
-    padding-right: $matcher-form-containment-padding;
-    display: flex;
-    align-items: start;
+.matcher-form-inner-container {
+    background-color: rgba(88, 87, 86, 0.2);
+    backdrop-filter: blur(100px);
+    border-radius: 15px;
+    height: $matcher-form-container-hw;
+    width: $matcher-form-container-hw;
+}
+
+.form-components {
+    padding: 15px;
+}
+
+// .animated-border {
+//     overflow: hidden;
+// }
+
+// .animated-border::before {
+//     content: '';
+//     position: absolute;
+//     width: $matcher-form-container-hw;
+//     height: 50%;
+//     background: linear-gradient(#4285f4, #34a853);
+//     animation: rotate 4s linear infinite;
+// }
+
+// .animated-border::after {
+//     content: '';
+//     position: absolute;
+//     background: rgb(88, 87, 86);
+//     inset: 5px;
+// }
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
