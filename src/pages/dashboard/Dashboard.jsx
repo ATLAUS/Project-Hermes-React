@@ -47,6 +47,7 @@ export const Dashboard = () => {
       // Set the userInfo and activeParty state.
       setUserInfo(response.user)
       if (response.activeParty.length > 0) {
+        sessionStorage.setItem('isMatching', 'false')
         setActiveParty(response.activeParty[0])
       }
     } catch (e) {
@@ -60,21 +61,33 @@ export const Dashboard = () => {
 
   return (
     <>
-      <NavRail/>
+      <NavRail />
       <Grid
         container
         columnSpacing={8}
         className="dashboard-container"
-        sx={{ height: '100%', width: '95%', justifyContent: 'center', alignItems: 'center' }}
+        sx={{
+          height: '100%',
+          width: '95%',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}
       >
         <Grid item xs={3} sx={{ height: '80%', zIndex: '2' }}>
-          <Stack spacing={3} className="dashboard-gp-container" sx={{height: '100%'}}>
-              <GameInfo />
-              <PartyInfo />
+          <Stack
+            spacing={3}
+            className="dashboard-gp-container"
+            sx={{ height: '100%' }}
+          >
+            <GameInfo />
+            <PartyInfo />
           </Stack>
         </Grid>
         <Grid item xs={8} sx={{ height: '80%', zIndex: '2' }}>
-          <Box className="dashboard-messenger-container" sx={{ height: '100%' }}>
+          <Box
+            className="dashboard-messenger-container"
+            sx={{ height: '100%' }}
+          >
             <Messenger />
           </Box>
         </Grid>
