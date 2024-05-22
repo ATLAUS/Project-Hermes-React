@@ -135,7 +135,7 @@ export const PartyInfo = () => {
         >
           
           <div className='circle' sx={{}}>
-            <Typography variant='h1' className='first-letter' sx={{height: "120%"}}>{ matchedUser?.userName && matchedUser?.userName[0]}</Typography>
+            <Typography variant='h1' className='first-letter' sx={{height: "120%"}}>{ matchedUser?.userName && matchedUser?.userName[0].toUpperCase()}</Typography>
           </div>
           <Typography variant='h5'>{matchedUser?.userName}</Typography>
           <Stack direction="row" spacing={7}>

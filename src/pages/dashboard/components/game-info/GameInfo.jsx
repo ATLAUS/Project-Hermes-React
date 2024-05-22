@@ -57,7 +57,7 @@ export const GameInfo = () => {
             image={gameData?.background_image}
           ></CardMedia>
           <Stack spacing={3}className="game-data-container">
-            <Typography variant='h4' component='h1'>{gameName && gameName}</Typography>
+            <Typography variant='h5' component='h1'>{gameName && gameName}</Typography>
             { gameData.website && (
               <div className="game-data-row">
                 <PublicIcon sx={{paddingRight: '10px'}} />
