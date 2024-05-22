@@ -1,12 +1,13 @@
 @use "../../theme";
 
 .nav-rail {
-    height: 75%;
+    height: 95%;
     width: 5%;
-    margin-top: 10px;
     display: flex;
-    justify-content: center;
-    z-index: 5;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
 }
 
 .nav-icons{
@@ -22,4 +23,11 @@
         background-color: theme.$accent-color-g-four;
         border-radius: 15px;
     }
+}
+
+.logout {
+    &:hover {
+            background-color: theme.$accent-color-g-one;
+            border-radius: 15px;
+        }
 }

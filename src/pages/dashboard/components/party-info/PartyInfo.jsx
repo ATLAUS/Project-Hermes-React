@@ -1,6 +1,4 @@
-import { Box, Button, Typography, Stack, Tooltip } from '@mui/material'
-import LogoutIcon from '@mui/icons-material/Logout'
-import LoopIcon from '@mui/icons-material/Loop'
+import { Box, Typography, Stack, Tooltip } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import './PartyInfo.scss'
 // Import useContext and the context we created (UserContext)
@@ -135,27 +133,24 @@ export const PartyInfo = () => {
             alignItems: 'center'
           }}
         >
-          <Typography>{matchedUser?.userName}</Typography>
+          
           <div className='circle'>
-            <PersonIcon fontSize="large" sx={{}}/>
+            <Typography variant='h1' className='first-letter' sx={{fontWeight: "bold", justifySelf: "center", alignSelf: "center"}}>{matchedUser?.userName && matchedUser?.userName[0].toUpperCase()}</Typography>
           </div>
+          <Typography variant='h5' component="h2">{matchedUser?.userName}</Typography>
           <Stack direction="row" spacing={7}>
-            {/* <Tooltip title="Leave" arrow disableInteractive> */}
               <button className="bttn" onClick={leaveParty} style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "40%"}}>
                 Leave
               </button>
-            {/* </Tooltip> */}
-            <Tooltip title="Rematch" arrow disableInteractive>
-            <button  className="bttn" onClick={rematchParty} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-              Rematch
-            </button>
-            </Tooltip>
+              <button  className="bttn" onClick={rematchParty} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                Rematch
+              </button>
           </Stack>
         </Stack>
       ) : (
-          <Stack spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+          <Stack spacing={2} sx={{display: "flex", justifyContent: "center", alignItems: "center", width: "80%"}}>
             <Typography>Bummer! You're not in a party!</Typography>
-            <Button onClick={()=>navigate('/matcher-display')}>Create a Matcher</Button>
+            <button className='bttn' onClick={()=>navigate('/matcher-display')}>Create a Matcher</button>
           </Stack>
       )}
     </Box>

@@ -6,6 +6,7 @@
     border-radius: 15px;
     background-color: rgba(88, 87, 86, 0.2);
     backdrop-filter: blur(100px);
+    overflow-y: auto;
 }
 
 .game-data-container {
@@ -25,4 +26,8 @@ a {
     &:hover {
         color: theme.$primary-accent-color;
     }
+}
+
+.game-data-row {
+    display: flex;
 }

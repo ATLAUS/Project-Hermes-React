@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import { Stack, TextField, Button, MenuItem} from '@mui/material'
-import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react'
 import './MatcherForm.scss'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -184,7 +183,7 @@ export const MatcherForm = () => {
               <button className='bttn' onClick={()=>navigate('/dashboard')}>
                 Cancel
               </button>
-              <button type="submit" className="bttn" endIcon={<SendIcon />}>
+              <button type="submit" className="bttn">
                 Submit
               </button>
             </Stack>

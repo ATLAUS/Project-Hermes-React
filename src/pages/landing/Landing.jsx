@@ -13,8 +13,9 @@ export const Landing = () => {
           <nav className="nav-bar">
             <img
               className="logo"
-              src="https://i.imgur.com/pbsxqJi.png"
+              src="https://i.imgur.com/XZEt6js.png"
               alt="Globe icon with branding."
+              style={{ height: '160%' }}
             />
             {isAuthenticated ? <LogoutButton /> : <LoginButton />}
           </nav>
@@ -81,7 +82,6 @@ export const Landing = () => {
             </p>
           </div>
         </div>
-
         <footer className="footer-container">
           <div className="footer">
             <div className="list-container">
