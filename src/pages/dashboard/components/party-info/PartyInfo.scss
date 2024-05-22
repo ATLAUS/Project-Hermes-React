@@ -25,11 +25,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    $random-color: random-accent-color();
-    background-image: linear-gradient( to top right, #12e3ce 0%, #1735ad 50%, #000 100%);
+    background-image: linear-gradient( to top left, #12e3ce 0%, #1735ad 50%, #000 100%);
 }
 
 .first-letter{
-    color: theme.$primary-accent-color
+    color: theme.$primary-accent-color;
 }

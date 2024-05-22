@@ -55,6 +55,7 @@ export const GameInfo = () => {
           <CardMedia
             sx={{ height: 150, borderRadius: '15px 15px 0px 0px' }}
             image={gameData?.background_image}
+            alt={`${gameName} Background image`}
           ></CardMedia>
           <Stack spacing={3}className="game-data-container">
             <Typography variant='h5' component='h1'>{gameName && gameName}</Typography>
