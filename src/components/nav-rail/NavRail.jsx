@@ -46,7 +46,7 @@ export const NavRail = () => {
       <Stack>
         <Tooltip title="Logout" placement="right" arrow disableInteractive>
           <Box
-            className="nav-icons"
+            className="nav-icons logout"
             onClick={() => {
               sessionStorage.clear()
               logout({ logoutParams: { returnTo: window.location.origin } })
