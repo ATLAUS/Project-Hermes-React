@@ -5,8 +5,9 @@ export const LogoutButton = () => {
   const { logout } = useAuth0()
   return (
     <button
-      className='bttn'
+      className="bttn"
       onClick={() => {
+        sessionStorage.clear()
         logout({ logoutParams: { returnTo: window.location.origin } })
       }}
     >
