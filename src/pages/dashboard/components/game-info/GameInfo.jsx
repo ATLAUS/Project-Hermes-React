@@ -1,4 +1,7 @@
 import { Box, CardMedia, Stack, Typography } from '@mui/material'
+import PublicIcon from '@mui/icons-material/Public';
+import EventIcon from '@mui/icons-material/Event';
+import StarIcon from '@mui/icons-material/Star';
 import './GameInfo.scss'
 import { useContext, useEffect } from 'react'
 import { UserContext } from '../../../../App'
@@ -53,14 +56,29 @@ export const GameInfo = () => {
             sx={{ height: 150, borderRadius: '15px 15px 0px 0px' }}
             image={gameData?.background_image}
           ></CardMedia>
-          <div className="game-data-container">
+          <Stack spacing={3}className="game-data-container">
             <Typography variant='h4' component='h1'>{gameName && gameName}</Typography>
-            {gameData.website && <p><a href={gameData.website} target='_blank'>Website</a></p>}
-            
-            <Typography>
-              {gameData.released && `Release Date: ${gameData.released}`}
-            </Typography>
-          </div>
+            { gameData.website && (
+              <div className="game-data-row">
+                <PublicIcon sx={{paddingRight: '10px'}} />
+                {gameData.website && <p><a href={gameData.website} target='_blank'>Website</a></p>}
+              </div>
+            )}
+            { gameData.released && (
+              <div className='game-data-row'>
+                <EventIcon sx={{paddingRight: '10px'}} />
+                <Typography>
+                  {gameData.released && `Release Date: ${gameData.released}`}
+                </Typography>
+              </div>
+            )}
+            { gameData.rating && (
+              <div className='game-data-row'>
+                <StarIcon sx={{paddingRight: '10px'}} />
+                <Typography>{gameData.rating && `Rating: ${gameData.rating}`}</Typography>
+              </div>
+            )}
+          </Stack>
         </>
       ) : (
         <></>
