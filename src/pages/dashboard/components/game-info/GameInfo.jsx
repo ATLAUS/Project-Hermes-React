@@ -1,6 +1,6 @@
-import { Box, Button, Card, CardMedia, Stack, Typography } from '@mui/material'
+import { Box, CardMedia, Stack, Typography } from '@mui/material'
 import './GameInfo.scss'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { UserContext } from '../../../../App'
 
 export const GameInfo = () => {

@@ -1,6 +1,4 @@
-import { Box, Button, Typography, Stack, Tooltip } from '@mui/material'
-import LogoutIcon from '@mui/icons-material/Logout'
-import LoopIcon from '@mui/icons-material/Loop'
+import { Box, Typography, Stack, Tooltip } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import './PartyInfo.scss'
 // Import useContext and the context we created (UserContext)
