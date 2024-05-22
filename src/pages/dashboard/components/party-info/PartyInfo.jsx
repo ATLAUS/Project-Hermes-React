@@ -137,7 +137,7 @@ export const PartyInfo = () => {
           <div className='circle' sx={{}}>
             <Typography variant='h1' className='first-letter' sx={{height: "120%"}}>{ matchedUser?.userName && matchedUser?.userName[0]}</Typography>
           </div>
-          <Typography>{matchedUser?.userName}</Typography>
+          <Typography variant='h5'>{matchedUser?.userName}</Typography>
           <Stack direction="row" spacing={7}>
               <button className="bttn" onClick={leaveParty} style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "40%"}}>
                 Leave
