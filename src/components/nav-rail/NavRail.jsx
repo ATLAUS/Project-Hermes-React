@@ -18,13 +18,13 @@ export const NavRail = () => {
     <Box className="nav-rail">
       <Stack direction="column" spacing={2}>
         <Tooltip title="Home" placement="right" arrow disableInteractive>
-          <Box className="nav-icons">
-            <HomeIcon onClick={() => navigate('/')} />
+          <Box className="nav-icons" onClick={() => navigate('/')}>
+            <HomeIcon />
           </Box>
         </Tooltip>
         <Tooltip title="Dashboard" placement="right" arrow disableInteractive>
-          <Box className="nav-icons">
-            <SpaceDashboardIcon onClick={() => navigate('/dashboard')} />
+          <Box className="nav-icons" onClick={() => navigate('/dashboard')}>
+            <SpaceDashboardIcon />
           </Box>
         </Tooltip>
         {!activeParty && (
@@ -34,21 +34,25 @@ export const NavRail = () => {
             arrow
             disableInteractive
           >
-            <Box className="nav-icons">
-              <AddIcon onClick={() => navigate('/matcher-display')} />
+            <Box
+              className="nav-icons"
+              onClick={() => navigate('/matcher-display')}
+            >
+              <AddIcon />
             </Box>
           </Tooltip>
         )}
       </Stack>
       <Stack>
         <Tooltip title="Logout" placement="right" arrow disableInteractive>
-          <Box className="nav-icons">
-            <LogoutIcon
-              onClick={() => {
-                sessionStorage.clear()
-                logout({ logoutParams: { returnTo: window.location.origin } })
-              }}
-            />
+          <Box
+            className="nav-icons"
+            onClick={() => {
+              sessionStorage.clear()
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }}
+          >
+            <LogoutIcon />
           </Box>
         </Tooltip>
       </Stack>
