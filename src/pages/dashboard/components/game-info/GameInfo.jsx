@@ -67,9 +67,11 @@ export const GameInfo = () => {
       )}
 
       {isMatching && (
-          <Stack>
-            <Typography>Searching for a party. Please refresh the page!</Typography>
-            <Button onClick={()=>window.location.reload()}>Refresh</Button>
+          <Stack spacing={1} sx={{display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%"}}>
+            <Typography>Searching for a party...</Typography>
+            <Typography>To check for a match,</Typography>
+            <Typography>Please refresh the page</Typography>
+            <button className="bttn" onClick={()=>window.location.reload()}>Refresh</button>
           </Stack>
       )
       }

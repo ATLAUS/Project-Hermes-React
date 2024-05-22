@@ -153,9 +153,9 @@ export const PartyInfo = () => {
           </Stack>
         </Stack>
       ) : (
-          <Stack spacing={2} sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '80%'}}>
+          <Stack spacing={2} sx={{display: "flex", justifyContent: "center", alignItems: "center", width: "80%"}}>
             <Typography>Bummer! You're not in a party!</Typography>
-            <Button onClick={()=>navigate('/matcher-display')}>Create a Matcher</Button>
+            <button className='bttn' onClick={()=>navigate('/matcher-display')}>Create a Matcher</button>
           </Stack>
       )}
     </Box>
