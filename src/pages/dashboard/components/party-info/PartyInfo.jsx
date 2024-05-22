@@ -133,21 +133,18 @@ export const PartyInfo = () => {
             alignItems: 'center'
           }}
         >
-          <Typography>{matchedUser?.userName}</Typography>
-          <div className='circle'>
-            <PersonIcon fontSize="large" sx={{}}/>
+          
+          <div className='circle' sx={{}}>
+            <Typography variant='h1' className='first-letter' sx={{height: "120%"}}>{ matchedUser?.userName && matchedUser?.userName[0]}</Typography>
           </div>
+          <Typography>{matchedUser?.userName}</Typography>
           <Stack direction="row" spacing={7}>
-            {/* <Tooltip title="Leave" arrow disableInteractive> */}
               <button className="bttn" onClick={leaveParty} style={{display: "flex", alignItems: "center", justifyContent: "space-between", width: "40%"}}>
                 Leave
               </button>
-            {/* </Tooltip> */}
-            <Tooltip title="Rematch" arrow disableInteractive>
-            <button  className="bttn" onClick={rematchParty} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
-              Rematch
-            </button>
-            </Tooltip>
+              <button  className="bttn" onClick={rematchParty} style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                Rematch
+              </button>
           </Stack>
         </Stack>
       ) : (
