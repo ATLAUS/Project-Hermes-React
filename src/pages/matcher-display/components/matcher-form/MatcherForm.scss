@@ -25,32 +25,3 @@ $matcher-form-containment-padding: 100px;
 .form-components {
     padding: 15px;
 }
-
-// .animated-border {
-//     overflow: hidden;
-// }
-
-// .animated-border::before {
-//     content: '';
-//     position: absolute;
-//     width: $matcher-form-container-hw;
-//     height: 50%;
-//     background: linear-gradient(#4285f4, #34a853);
-//     animation: rotate 4s linear infinite;
-// }
-
-// .animated-border::after {
-//     content: '';
-//     position: absolute;
-//     background: rgb(88, 87, 86);
-//     inset: 5px;
-// }
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
