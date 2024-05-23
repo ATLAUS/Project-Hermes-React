@@ -128,7 +128,6 @@ export const MatcherForm = () => {
               select
               required
               sx={classes.textField}
-              //className='animated-border'
               value={gameName}
               onChange={(e) => setGameName(e.target.value)}
             >
